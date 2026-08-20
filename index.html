@@ -40,7 +40,7 @@
   };
 </script>
 
-<link rel="stylesheet" href="assets/css/style.css?v=18" />
+<link rel="stylesheet" href="assets/css/style.css?v=25" />
 </head>
 
 <body class="is-locked">
@@ -99,9 +99,6 @@
       <stop offset="55%"  stop-color="#FFEDC0" stop-opacity=".45"/>
       <stop offset="100%" stop-color="#FFEDC0" stop-opacity="0"/>
     </radialGradient>
-    <clipPath id="archClip">
-      <path d="M28 452 L28 216 C28 158 74 146 90 102 C99 76 110 54 124 54 L216 54 C230 54 241 76 250 102 C266 146 312 158 312 216 L312 452 Z"/>
-    </clipPath>
   </defs>
 </svg>
 
@@ -212,67 +209,30 @@
 
       <div class="arch-card" id="archCard">
         <svg class="arch-svg" viewBox="0 0 340 460" aria-hidden="true">
-          <!-- scene inside the arch -->
-          <g clip-path="url(#archClip)">
-            <rect x="0" y="0" width="340" height="460" fill="url(#sunrise)"/>
-            <rect x="0" y="0" width="340" height="460" fill="url(#sunGlow)"/>
-
-            <!-- Loha Prasat, seen through the doorway -->
-            <g class="arch-scene" transform="translate(34,259) scale(.68)">
-              <path class="sil-soft" d="M0 300 H400 V420 H0 Z"/>
-              <path class="sil" d="M28 284 H372"/>
-              <path class="sil" d="M36 284 V272 H364 V284 Z"/>
-              <path class="sil" d="M52 272 V260 H348 V272 Z"/>
-              <path class="sil" d="M70 260 V206 H330 V260 Z"/>
-              <path class="sil" d="M58 206 L92 188 H308 L342 206 Z"/>
-              <path class="sil" d="M112 188 V150 H288 V188 Z"/>
-              <path class="sil" d="M102 150 L130 134 H270 L298 150 Z"/>
-              <path class="sil" d="M152 134 V100 H248 V134 Z"/>
-              <path class="sil" d="M144 100 L166 86 H234 L256 100 Z"/>
-              <g class="sil-hair">
-                <path d="M92 260 V236 a12 12 0 0 1 24 0 V260"/>
-                <path d="M124 260 V236 a12 12 0 0 1 24 0 V260"/>
-                <path d="M252 260 V236 a12 12 0 0 1 24 0 V260"/>
-                <path d="M284 260 V236 a12 12 0 0 1 24 0 V260"/>
-                <path d="M138 188 V168 a10 10 0 0 1 20 0 V188"/>
-                <path d="M242 188 V168 a10 10 0 0 1 20 0 V188"/>
-                <path d="M186 134 V114 a14 12 0 0 1 28 0 V134"/>
-                <path d="M176 260 h48 M180 266 h40"/>
-                <path d="M64 200 H336 M108 145 H292"/>
-              </g>
-              <g class="sil-spires">
-                <use href="#spire" transform="translate(78,188) scale(.62)"/>
-                <use href="#spire" transform="translate(110,188) scale(.62)"/>
-                <use href="#spire" transform="translate(142,188) scale(.62)"/>
-                <use href="#spire" transform="translate(258,188) scale(.62)"/>
-                <use href="#spire" transform="translate(290,188) scale(.62)"/>
-                <use href="#spire" transform="translate(322,188) scale(.62)"/>
-                <use href="#spire" transform="translate(120,134) scale(.78)"/>
-                <use href="#spire" transform="translate(152,134) scale(.78)"/>
-                <use href="#spire" transform="translate(248,134) scale(.78)"/>
-                <use href="#spire" transform="translate(280,134) scale(.78)"/>
-                <use href="#spire" transform="translate(160,86) scale(.9)"/>
-                <use href="#spire" transform="translate(240,86) scale(.9)"/>
-                <path d="M186 86 L200 62 L214 86 Z"/>
-                <use href="#spire" transform="translate(200,64) scale(1.35)"/>
-              </g>
-            </g>
+          <!-- warm morning wash across the card -->
+          <g>
+            <rect x="14" y="14" width="312" height="432" rx="3" fill="url(#sunrise)"/>
+            <rect x="14" y="14" width="312" height="432" rx="3" fill="url(#sunGlow)"/>
           </g>
 
-          <!-- arch outline -->
-          <path class="arch-line" d="M28 452 L28 216 C28 158 74 146 90 102 C99 76 110 54 124 54 L216 54 C230 54 241 76 250 102 C266 146 312 158 312 216 L312 452"/>
-          <path class="arch-line hair" d="M39 452 L39 218 C39 166 82 154 99 110 C108 84 118 65 129 65 L211 65 C222 65 232 84 241 110 C258 154 301 166 301 218 L301 452"/>
-          <path class="arch-spark" pathLength="1000"
-                d="M28 452 L28 216 C28 158 74 146 90 102 C99 76 110 54 124 54 L216 54 C230 54 241 76 250 102 C266 146 312 158 312 216 L312 452"/>
 
-          <!-- crown ornament -->
-          <g class="arch-orn">
-            <use href="#lotus" transform="translate(170,50) scale(.95)"/>
-            <use href="#kanok" transform="translate(146,60) scale(-.62,.62)"/>
-            <use href="#kanok" transform="translate(194,60) scale(.62)"/>
-            <use href="#kanok" transform="translate(46,206) scale(-.7,.7)"/>
-            <use href="#kanok" transform="translate(294,206) scale(.7)"/>
+
+          <!-- floral sprays cascading from the top corners -->
+          <g class="fl-spray" transform="translate(16 448) scale(1,-1)"><path class="fl-stem" d="M22 36 C42 46 58 62 70 82 C76 92 80 98 84 104"/><path class="fl-stem" d="M34 44 C44 60 47 76 45 92"/><g transform="translate(38.0 52.0) rotate(26.0)"><path class="fl-leaf" d="M0 0 C3.4 -1.6 7.4 -6.4 8.8 -12.4 C3.6 -10.4 0.9 -5.4 0 0 Z"/><path class="fl-vein" d="M0 0 C2.6 -3.4 5.4 -7.4 7.6 -11.4"/></g><g transform="translate(27.0 60.0) rotate(-48.0)"><path class="fl-leaf" d="M0 0 C3.1 -1.4 6.7 -5.8 7.9 -11.2 C3.2 -9.4 0.8 -4.9 0 0 Z"/><path class="fl-vein" d="M0 0 C2.3 -3.1 4.9 -6.7 6.8 -10.3"/></g><g transform="translate(56.0 76.0) rotate(34.0)"><path class="fl-leaf" d="M0 0 C3.4 -1.6 7.4 -6.4 8.8 -12.4 C3.6 -10.4 0.9 -5.4 0 0 Z"/><path class="fl-vein" d="M0 0 C2.6 -3.4 5.4 -7.4 7.6 -11.4"/></g><g transform="translate(44.0 86.0) rotate(-30.0)"><path class="fl-leaf" d="M0 0 C2.9 -1.4 6.3 -5.4 7.5 -10.5 C3.1 -8.8 0.8 -4.6 0 0 Z"/><path class="fl-vein" d="M0 0 C2.2 -2.9 4.6 -6.3 6.5 -9.7"/></g><g transform="translate(72.0 96.0) rotate(46.0)"><path class="fl-leaf" d="M0 0 C2.9 -1.4 6.3 -5.4 7.5 -10.5 C3.1 -8.8 0.8 -4.6 0 0 Z"/><path class="fl-vein" d="M0 0 C2.2 -2.9 4.6 -6.3 6.5 -9.7"/></g><ellipse class="fl-bud" cx="25.0" cy="42.0" rx="2.3" ry="4.2" transform="rotate(-28.0 25.0 42.0)"/><ellipse class="fl-bud" cx="82.0" cy="100.0" rx="1.9" ry="3.4" transform="rotate(42.0 82.0 100.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(12.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(84.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(156.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(228.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(300.0 40.0 62.0)"/><circle class="fl-core" cx="40.0" cy="62.0" r="2.1"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(-20.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(52.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(124.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(196.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(268.0 60.0 86.0)"/><circle class="fl-core" cx="60.0" cy="86.0" r="1.6"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(44.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(116.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(188.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(260.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(332.0 28.0 78.0)"/><circle class="fl-core" cx="28.0" cy="78.0" r="1.2"/></g>
+          <g class="fl-spray" transform="translate(324 448) scale(-1,-1)"><path class="fl-stem" d="M22 36 C42 46 58 62 70 82 C76 92 80 98 84 104"/><path class="fl-stem" d="M34 44 C44 60 47 76 45 92"/><g transform="translate(38.0 52.0) rotate(26.0)"><path class="fl-leaf" d="M0 0 C3.4 -1.6 7.4 -6.4 8.8 -12.4 C3.6 -10.4 0.9 -5.4 0 0 Z"/><path class="fl-vein" d="M0 0 C2.6 -3.4 5.4 -7.4 7.6 -11.4"/></g><g transform="translate(27.0 60.0) rotate(-48.0)"><path class="fl-leaf" d="M0 0 C3.1 -1.4 6.7 -5.8 7.9 -11.2 C3.2 -9.4 0.8 -4.9 0 0 Z"/><path class="fl-vein" d="M0 0 C2.3 -3.1 4.9 -6.7 6.8 -10.3"/></g><g transform="translate(56.0 76.0) rotate(34.0)"><path class="fl-leaf" d="M0 0 C3.4 -1.6 7.4 -6.4 8.8 -12.4 C3.6 -10.4 0.9 -5.4 0 0 Z"/><path class="fl-vein" d="M0 0 C2.6 -3.4 5.4 -7.4 7.6 -11.4"/></g><g transform="translate(44.0 86.0) rotate(-30.0)"><path class="fl-leaf" d="M0 0 C2.9 -1.4 6.3 -5.4 7.5 -10.5 C3.1 -8.8 0.8 -4.6 0 0 Z"/><path class="fl-vein" d="M0 0 C2.2 -2.9 4.6 -6.3 6.5 -9.7"/></g><g transform="translate(72.0 96.0) rotate(46.0)"><path class="fl-leaf" d="M0 0 C2.9 -1.4 6.3 -5.4 7.5 -10.5 C3.1 -8.8 0.8 -4.6 0 0 Z"/><path class="fl-vein" d="M0 0 C2.2 -2.9 4.6 -6.3 6.5 -9.7"/></g><ellipse class="fl-bud" cx="25.0" cy="42.0" rx="2.3" ry="4.2" transform="rotate(-28.0 25.0 42.0)"/><ellipse class="fl-bud" cx="82.0" cy="100.0" rx="1.9" ry="3.4" transform="rotate(42.0 82.0 100.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(12.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(84.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(156.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(228.0 40.0 62.0)"/><ellipse class="fl-petal" cx="40.0" cy="56.7" rx="2.9" ry="5.3" transform="rotate(300.0 40.0 62.0)"/><circle class="fl-core" cx="40.0" cy="62.0" r="2.1"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(-20.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(52.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(124.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(196.0 60.0 86.0)"/><ellipse class="fl-petal" cx="60.0" cy="81.9" rx="2.2" ry="4.1" transform="rotate(268.0 60.0 86.0)"/><circle class="fl-core" cx="60.0" cy="86.0" r="1.6"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(44.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(116.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(188.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(260.0 28.0 78.0)"/><ellipse class="fl-petal" cx="28.0" cy="75.1" rx="1.6" ry="2.9" transform="rotate(332.0 28.0 78.0)"/><circle class="fl-core" cx="28.0" cy="78.0" r="1.2"/></g>
+
+          <!-- พวงมาลัย hanging on either side -->
+          <g class="malai"><path class="ml-cord" d="M74.0 168.0 V192.0"/><path class="ml-knot" d="M74.0 190.0 l3.2 4 -3.2 4 -3.2 -4 Z"/><circle class="ml-bud" cx="74.00" cy="194.00" r="2.5"/><circle class="ml-bud" cx="78.02" cy="195.10" r="2.5"/><circle class="ml-bud" cx="81.42" cy="198.25" r="2.5"/><circle class="ml-bud" cx="83.70" cy="202.95" r="2.5"/><circle class="ml-bud" cx="84.50" cy="208.50" r="2.5"/><circle class="ml-bud" cx="83.70" cy="214.05" r="2.5"/><circle class="ml-bud" cx="81.42" cy="218.75" r="2.5"/><circle class="ml-bud" cx="78.02" cy="221.90" r="2.5"/><circle class="ml-bud" cx="74.00" cy="223.00" r="2.5"/><circle class="ml-bud" cx="69.98" cy="221.90" r="2.5"/><circle class="ml-bud" cx="66.58" cy="218.75" r="2.5"/><circle class="ml-bud" cx="64.30" cy="214.05" r="2.5"/><circle class="ml-bud" cx="63.50" cy="208.50" r="2.5"/><circle class="ml-bud" cx="64.30" cy="202.95" r="2.5"/><circle class="ml-bud" cx="66.58" cy="198.25" r="2.5"/><circle class="ml-bud" cx="69.98" cy="195.10" r="2.5"/><path class="ml-cord" d="M74.0 223.0 V230.0"/><path class="ml-cord" d="M74.0 230.0 C71.8 234.0 68.5 236.0 68.5 242.0"/><ellipse class="ml-drop" cx="68.5" cy="246.0" rx="2.6" ry="4.2"/><path class="ml-cord" d="M74.0 230.0 C74.0 234.0 74.0 236.0 74.0 247.0"/><ellipse class="ml-drop" cx="74.0" cy="251.0" rx="2.6" ry="4.2"/><path class="ml-cord" d="M74.0 230.0 C76.2 234.0 79.5 236.0 79.5 242.0"/><ellipse class="ml-drop" cx="79.5" cy="246.0" rx="2.6" ry="4.2"/><path class="ml-cord" d="M266.0 168.0 V192.0"/><path class="ml-knot" d="M266.0 190.0 l3.2 4 -3.2 4 -3.2 -4 Z"/><circle class="ml-bud" cx="266.00" cy="194.00" r="2.5"/><circle class="ml-bud" cx="270.02" cy="195.10" r="2.5"/><circle class="ml-bud" cx="273.42" cy="198.25" r="2.5"/><circle class="ml-bud" cx="275.70" cy="202.95" r="2.5"/><circle class="ml-bud" cx="276.50" cy="208.50" r="2.5"/><circle class="ml-bud" cx="275.70" cy="214.05" r="2.5"/><circle class="ml-bud" cx="273.42" cy="218.75" r="2.5"/><circle class="ml-bud" cx="270.02" cy="221.90" r="2.5"/><circle class="ml-bud" cx="266.00" cy="223.00" r="2.5"/><circle class="ml-bud" cx="261.98" cy="221.90" r="2.5"/><circle class="ml-bud" cx="258.58" cy="218.75" r="2.5"/><circle class="ml-bud" cx="256.30" cy="214.05" r="2.5"/><circle class="ml-bud" cx="255.50" cy="208.50" r="2.5"/><circle class="ml-bud" cx="256.30" cy="202.95" r="2.5"/><circle class="ml-bud" cx="258.58" cy="198.25" r="2.5"/><circle class="ml-bud" cx="261.98" cy="195.10" r="2.5"/><path class="ml-cord" d="M266.0 223.0 V230.0"/><path class="ml-cord" d="M266.0 230.0 C263.8 234.0 260.5 236.0 260.5 242.0"/><ellipse class="ml-drop" cx="260.5" cy="246.0" rx="2.6" ry="4.2"/><path class="ml-cord" d="M266.0 230.0 C266.0 234.0 266.0 236.0 266.0 247.0"/><ellipse class="ml-drop" cx="266.0" cy="251.0" rx="2.6" ry="4.2"/><path class="ml-cord" d="M266.0 230.0 C268.2 234.0 271.5 236.0 271.5 242.0"/><ellipse class="ml-drop" cx="271.5" cy="246.0" rx="2.6" ry="4.2"/></g>
+
+          <!-- the couple kneeling for the water blessing -->
+          <ellipse class="rt-glow" cx="170" cy="352" rx="118" ry="86" fill="url(#sunGlow)"/>
+          <g class="ritual" transform="translate(170 424) scale(1.5)">
+            <path class="rt-floor" d="M-112 1 H112"/>
+            <g class="rt-side"><path class="rt-table" d="M-30 -21 h60 v5.5 h-60 Z"/><path class="rt-table-leg" d="M-23 -15.5 v14 M23 -15.5 v14 M-27 -1.5 h54"/><ellipse class="rt-cushion" cx="0" cy="-27" rx="26" ry="8"/><path class="rt-cushion-line" d="M-20 -30.5 C-8 -33.5 8 -33.5 20 -30.5"/><path class="rt-fig" d="M-12.5 -32 C-15 -48 -11 -60 0 -60 C11 -60 15 -48 12.5 -32 Z"/><path class="rt-fig" d="M-13.6 -54 C-19 -47 -20 -38 -16 -31.5 L-10.4 -31.5 C-13 -38 -12 -46 -8.6 -51.5 Z"/><path class="rt-fig" d="M13.6 -54 C19 -47 20 -38 16 -31.5 L10.4 -31.5 C13 -38 12 -46 8.6 -51.5 Z"/><path class="rt-hand" d="M-9 -31.5 C-9 -35 -4 -36.5 0 -36.5 C4 -36.5 9 -35 9 -31.5 Z"/><circle class="rt-fig" cx="0" cy="-70.5" r="9.8"/><path class="rt-fig" d="M-9.9 -72.5 C-9.3 -79.5 -5 -82.8 0 -82.8 C5 -82.8 9.3 -79.5 9.9 -72.5 C7.2 -77.6 4.1 -79.2 0 -79.2 C-4.1 -79.2 -7.2 -77.6 -9.9 -72.5 Z"/><path class="rt-malai" d="M-8.8 -60.5 C-9.2 -52.5 -4.7 -49 0 -49 C4.7 -49 9.2 -52.5 8.8 -60.5"/><circle class="rt-bud" cx="-6.6" cy="-52.0" r="2"/><circle class="rt-bud" cx="-3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="0.0" cy="-49.4" r="2"/><circle class="rt-bud" cx="3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="6.6" cy="-52.0" r="2"/><ellipse class="rt-mongkol" cx="0" cy="-80.8" rx="10.9" ry="3.4"/></g>
+            <g class="rt-side rt-side--b"><path class="rt-table" d="M-30 -21 h60 v5.5 h-60 Z"/><path class="rt-table-leg" d="M-23 -15.5 v14 M23 -15.5 v14 M-27 -1.5 h54"/><ellipse class="rt-cushion" cx="0" cy="-27" rx="26" ry="8"/><path class="rt-cushion-line" d="M-20 -30.5 C-8 -33.5 8 -33.5 20 -30.5"/><path class="rt-fig-2" d="M-12.5 -32 C-15 -48 -11 -60 0 -60 C11 -60 15 -48 12.5 -32 Z"/><path class="rt-fig-2" d="M-13.6 -54 C-19 -47 -20 -38 -16 -31.5 L-10.4 -31.5 C-13 -38 -12 -46 -8.6 -51.5 Z"/><path class="rt-fig-2" d="M13.6 -54 C19 -47 20 -38 16 -31.5 L10.4 -31.5 C13 -38 12 -46 8.6 -51.5 Z"/><path class="rt-hand" d="M-9 -31.5 C-9 -35 -4 -36.5 0 -36.5 C4 -36.5 9 -35 9 -31.5 Z"/><circle class="rt-fig-2" cx="0" cy="-70.5" r="9.8"/><path class="rt-fig-2" d="M-9.9 -72.5 C-9.3 -79.5 -5 -82.8 0 -82.8 C5 -82.8 9.3 -79.5 9.9 -72.5 C7.2 -77.6 4.1 -79.2 0 -79.2 C-4.1 -79.2 -7.2 -77.6 -9.9 -72.5 Z"/><circle class="rt-fig-2" cx="8.9" cy="-77.4" r="4.8"/><path class="rt-sash" d="M-7 -56 L6.5 -34"/><path class="rt-malai" d="M-8.8 -60.5 C-9.2 -52.5 -4.7 -49 0 -49 C4.7 -49 9.2 -52.5 8.8 -60.5"/><circle class="rt-bud" cx="-6.6" cy="-52.0" r="2"/><circle class="rt-bud" cx="-3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="0.0" cy="-49.4" r="2"/><circle class="rt-bud" cx="3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="6.6" cy="-52.0" r="2"/><ellipse class="rt-mongkol" cx="0" cy="-80.8" rx="10.9" ry="3.4"/></g>
+            <path class="rt-cord" d="M-22.1 -80.8 C-12 -73.5 12 -73.5 22.1 -80.8"/>
           </g>
+          <g class="petals"><ellipse class="petal" cx="122.1" cy="-16" rx="2.7" ry="4.6" style="--dur:10.1s;--delay:-10.4s;--spin:2deg"/><ellipse class="petal" cx="133.5" cy="-16" rx="2.7" ry="4.5" style="--dur:9.4s;--delay:-8.1s;--spin:-4deg"/><ellipse class="petal" cx="53.0" cy="-16" rx="3.9" ry="6.7" style="--dur:9.6s;--delay:-6.8s;--spin:-23deg"/><ellipse class="petal" cx="94.7" cy="-16" rx="3.5" ry="6.0" style="--dur:13.4s;--delay:-15.2s;--spin:-6deg"/><ellipse class="petal" cx="299.5" cy="-16" rx="3.1" ry="5.2" style="--dur:9.3s;--delay:-13.7s;--spin:-21deg"/><ellipse class="petal" cx="66.0" cy="-16" rx="2.9" ry="4.9" style="--dur:11.2s;--delay:-13.1s;--spin:5deg"/><ellipse class="petal" cx="207.8" cy="-16" rx="2.7" ry="4.6" style="--dur:11.6s;--delay:-8.8s;--spin:-26deg"/><ellipse class="petal" cx="90.0" cy="-16" rx="3.1" ry="5.3" style="--dur:13.8s;--delay:-6.8s;--spin:5deg"/><ellipse class="petal" cx="157.3" cy="-16" rx="3.7" ry="6.3" style="--dur:11.1s;--delay:-12.7s;--spin:-15deg"/></g>
         </svg>
 
         <div class="sparkles" id="sparkles" aria-hidden="true"></div>
