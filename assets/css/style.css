@@ -478,43 +478,25 @@ button{ font:inherit; color:inherit; }
 }
 @keyframes rcGlint{ 0%,70%,100%{opacity:0; scale:.4} 82%{opacity:1; scale:1} }
 
-/* walk in from off the card, then settle into a sit */
-.rc-unit{ animation:rcWalkL 2.9s ease-out both; }
-.rc-unit--r{ animation-name:rcWalkR; animation-duration:3.2s; }
-@keyframes rcWalkL{
-  0%  { translate:-186px 0; opacity:0 }
-  7%  { opacity:1 }
-  22% { translate:-138px -2.5px }
-  36% { translate:-104px 0 }
-  52% { translate:-68px -2.5px }
-  68% { translate:-38px 0 }
-  82% { translate:-12px -2px }
-  90% { translate:0 0; scale:1 1 }
-  95% { scale:1.05 .93 }
-  100%{ translate:0 0; scale:1 1 }
-}
-@keyframes rcWalkR{
-  0%  { translate:186px 0; opacity:0 }
-  7%  { opacity:1 }
-  22% { translate:138px -2.5px }
-  36% { translate:104px 0 }
-  52% { translate:68px -2.5px }
-  68% { translate:38px 0 }
-  82% { translate:12px -2px }
-  90% { translate:0 0; scale:1 1 }
-  95% { scale:1.05 .93 }
-  100%{ translate:0 0; scale:1 1 }
+/* they rise into view from behind the couple, once */
+.rc-unit{ animation:rcPeek 1.5s cubic-bezier(.22,1.2,.36,1) .7s both; }
+.rc-unit--r{ animation-delay:1.15s; }
+@keyframes rcPeek{
+  0%  { translate:0 34px; opacity:0 }
+  25% { opacity:1 }
+  100%{ translate:0 0; opacity:1 }
 }
 
-/* once seated, the ring-bearing tail waves */
+/* then a slow peek-and-look, tail waving the ring */
+.ringcats .rc-unit{ transform-box:fill-box; transform-origin:50% 100%; }
 .ringcats .rc-tailring{
-  transform-box:fill-box; transform-origin:85% 100%;
-  animation:rcTailWave 2.9s ease-in-out 3.2s infinite;
+  transform-box:fill-box; transform-origin:100% 100%;
+  animation:rcTailWave 3.1s ease-in-out 2.4s infinite;
 }
-.rc-unit--r .rc-tailring{ animation-duration:3.7s; animation-delay:3.6s; }
+.rc-unit--r .rc-tailring{ animation-duration:3.9s; animation-delay:3s; }
 @keyframes rcTailWave{
-  0%,100%{ transform:rotate(-7deg) }
-  50%    { transform:rotate(13deg) }
+  0%,100%{ transform:rotate(-6deg) }
+  50%    { transform:rotate(11deg) }
 }
 
 /* --- the water-blessing scene on the card --- */
