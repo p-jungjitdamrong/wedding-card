@@ -450,35 +450,72 @@ button{ font:inherit; color:inherit; }
   letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep);
 }
 
-/* --- the ring bearers --- */
+/* --- the ring bearers: a cat each, ring hooked on the tail --- */
 .ringcats .rc-cat  { fill:var(--dusty-dark); }
 .ringcats .rc-cat-2{ fill:var(--sage-dark); }
 .ringcats .rc-shadow{ fill:rgba(110,131,140,.14); }
-.ringcats .rc-tail{
-  fill:none; stroke-width:3; stroke-linecap:round;
-  transform-box:fill-box; transform-origin:100% 100%;
-  animation:rcSwish 3.2s ease-in-out infinite;
-}
-.ringcats .rc-cat-s  { stroke:var(--dusty-dark); }
-.ringcats .rc-cat-2-s{ stroke:var(--sage-dark); animation-duration:4.1s; animation-delay:-1.4s; }
-@keyframes rcSwish{ 0%,100%{transform:rotate(-8deg)} 50%{transform:rotate(10deg)} }
-
 .ringcats .rc-face{
   fill:none; stroke:rgba(255,251,240,.85); stroke-width:1; stroke-linecap:round;
 }
-.ringcats .rc-ribbon{
-  fill:none; stroke:rgba(212,175,55,.9); stroke-width:1.5; stroke-linecap:round;
+.ringcats .rc-tail{
+  fill:none; stroke-width:3; stroke-linecap:round;
 }
-.ringcats .rc-ring{
-  fill:none; stroke:var(--gold); stroke-width:2.1;
+.ringcats .rc-cat-s  { stroke:var(--dusty-dark); }
+.ringcats .rc-cat-2-s{ stroke:var(--sage-dark); }
+
+/* the rings themselves — a plain band for him, a diamond for her */
+.ringcats .rc-band{ fill:none; stroke:var(--gold); stroke-width:1.7; }
+.ringcats .rc-band--groom{ stroke-width:2.6; }
+.ringcats .rc-band-hi{ fill:none; stroke:rgba(240,223,166,.65); stroke-width:.6; }
+.ringcats .rc-gem{
+  fill:rgba(255,253,246,.95); stroke:var(--gold); stroke-width:.9; stroke-linejoin:round;
 }
-.ringcats .rc-ring-inner{ fill:none; stroke:rgba(240,223,166,.7); stroke-width:.7; }
-.ringcats .rc-gem{ fill:var(--gold-soft); stroke:var(--gold-deep); stroke-width:.6; }
-.ringcats .rc-swing{
-  transform-box:fill-box; transform-origin:50% 0;
-  animation:rcSwing 4.6s ease-in-out infinite;
+.ringcats .rc-gem-facet{ fill:none; stroke:rgba(169,138,32,.6); stroke-width:.55; }
+.ringcats .rc-sparkle{
+  fill:var(--gold-soft);
+  transform-box:fill-box; transform-origin:50% 50%;
+  animation:rcGlint 2.8s ease-in-out 3.4s infinite;
 }
-@keyframes rcSwing{ 0%,100%{transform:rotate(-4.5deg)} 50%{transform:rotate(4.5deg)} }
+@keyframes rcGlint{ 0%,70%,100%{opacity:0; scale:.4} 82%{opacity:1; scale:1} }
+
+/* walk in from off the card, then settle into a sit */
+.rc-unit{ animation:rcWalkL 2.9s ease-out both; }
+.rc-unit--r{ animation-name:rcWalkR; animation-duration:3.2s; }
+@keyframes rcWalkL{
+  0%  { translate:-186px 0; opacity:0 }
+  7%  { opacity:1 }
+  22% { translate:-138px -2.5px }
+  36% { translate:-104px 0 }
+  52% { translate:-68px -2.5px }
+  68% { translate:-38px 0 }
+  82% { translate:-12px -2px }
+  90% { translate:0 0; scale:1 1 }
+  95% { scale:1.05 .93 }
+  100%{ translate:0 0; scale:1 1 }
+}
+@keyframes rcWalkR{
+  0%  { translate:186px 0; opacity:0 }
+  7%  { opacity:1 }
+  22% { translate:138px -2.5px }
+  36% { translate:104px 0 }
+  52% { translate:68px -2.5px }
+  68% { translate:38px 0 }
+  82% { translate:12px -2px }
+  90% { translate:0 0; scale:1 1 }
+  95% { scale:1.05 .93 }
+  100%{ translate:0 0; scale:1 1 }
+}
+
+/* once seated, the ring-bearing tail waves */
+.ringcats .rc-tailring{
+  transform-box:fill-box; transform-origin:85% 100%;
+  animation:rcTailWave 2.9s ease-in-out 3.2s infinite;
+}
+.rc-unit--r .rc-tailring{ animation-duration:3.7s; animation-delay:3.6s; }
+@keyframes rcTailWave{
+  0%,100%{ transform:rotate(-7deg) }
+  50%    { transform:rotate(13deg) }
+}
 
 /* --- the water-blessing scene on the card --- */
 .ritual .rt-fig  { fill:var(--dusty-dark); }

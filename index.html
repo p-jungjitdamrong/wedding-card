@@ -40,7 +40,7 @@
   };
 </script>
 
-<link rel="stylesheet" href="assets/css/style.css?v=27" />
+<link rel="stylesheet" href="assets/css/style.css?v=29" />
 </head>
 
 <body class="is-locked">
@@ -233,19 +233,20 @@
             <path class="rt-cord" d="M-22.1 -80.8 C-12 -73.5 12 -73.5 22.1 -80.8"/>
           </g>
 
-          <!-- the cats bring the rings -->
+
+
+          <!-- each cat brings a ring hooked on its tail -->
           <g class="ringcats" transform="translate(170 448)">
-            <ellipse class="rc-shadow" cx="-24" cy="1" rx="15" ry="3"/>
-            <ellipse class="rc-shadow" cx="24" cy="1" rx="15" ry="3"/>
-            <g transform="translate(-24 0)"><path class="rc-tail rc-cat-s" d="M-11 -3 C-19 -5 -22 -14 -18.5 -21 C-17 -24 -13.5 -24 -13 -21"/><path class="rc-cat" d="M-11 0 C-15.5 -8 -13.5 -20 -5.5 -25 C-1.5 -27.5 3.5 -26.5 6 -22.5 C8 -19 8 -8 8 0 Z"/><path class="rc-cat" d="M3 0 C3 -8 3.5 -13 6 -16 L9 -16 C7 -12 6.5 -7 6.5 0 Z"/><circle class="rc-cat" cx="10.5" cy="-29.5" r="7"/><path class="rc-cat" d="M5.5 -33.5 L4 -41 L10 -37 Z"/><path class="rc-cat" d="M14 -34.5 L16.5 -41 L11 -38.5 Z"/><path class="rc-face" d="M15.5 -28.5 C17 -28 17.6 -27 17.4 -26"/></g>
-            <g transform="translate(24 0) scale(-1,1)"><path class="rc-tail rc-cat-2-s" d="M-11 -3 C-19 -5 -22 -14 -18.5 -21 C-17 -24 -13.5 -24 -13 -21"/><path class="rc-cat-2" d="M-11 0 C-15.5 -8 -13.5 -20 -5.5 -25 C-1.5 -27.5 3.5 -26.5 6 -22.5 C8 -19 8 -8 8 0 Z"/><path class="rc-cat-2" d="M3 0 C3 -8 3.5 -13 6 -16 L9 -16 C7 -12 6.5 -7 6.5 0 Z"/><circle class="rc-cat-2" cx="10.5" cy="-29.5" r="7"/><path class="rc-cat-2" d="M5.5 -33.5 L4 -41 L10 -37 Z"/><path class="rc-cat-2" d="M14 -34.5 L16.5 -41 L11 -38.5 Z"/><path class="rc-face" d="M15.5 -28.5 C17 -28 17.6 -27 17.4 -26"/></g>
-            <g class="rc-swing">
-              <path class="rc-ribbon" d="M-6.5 -26.5 C-3 -18 3 -18 6.5 -26.5"/>
-              <circle class="rc-ring" cx="0" cy="-14.4" r="4.6"/>
-              <circle class="rc-ring-inner" cx="0" cy="-14.4" r="2.4"/>
-              <path class="rc-gem" d="M0 -21.6 l2 2.2 -2 2.2 -2 -2.2 Z"/>
+            <g class="rc-unit rc-unit--l">
+              <ellipse class="rc-shadow" cx="-30" cy="1" rx="15" ry="3"/>
+              <g transform="translate(-30 0)"><g class="rc-tailring"><path class="rc-tail rc-cat-s" d="M-10 -4 C-22 -8 -27.5 -22 -22 -32 C-19 -37.5 -12.5 -36.5 -12 -30.5"/><g class="rc-ring-set"><circle class="rc-band rc-band--groom" cx="-13.5" cy="-27.5" r="5.4"/><circle class="rc-band-hi" cx="-13.5" cy="-27.5" r="3.1"/></g></g><path class="rc-cat" d="M-11 0 C-15.5 -8 -13.5 -20 -5.5 -25 C-1.5 -27.5 3.5 -26.5 6 -22.5 C8 -19 8 -8 8 0 Z"/><path class="rc-cat" d="M3 0 C3 -8 3.5 -13 6 -16 L9 -16 C7 -12 6.5 -7 6.5 0 Z"/><circle class="rc-cat" cx="10.5" cy="-29.5" r="7"/><path class="rc-cat" d="M5.5 -33.5 L4 -41 L10 -37 Z"/><path class="rc-cat" d="M14 -34.5 L16.5 -41 L11 -38.5 Z"/><path class="rc-face" d="M15.5 -28.5 C17 -28 17.6 -27 17.4 -26"/></g>
+            </g>
+            <g class="rc-unit rc-unit--r">
+              <ellipse class="rc-shadow" cx="30" cy="1" rx="15" ry="3"/>
+              <g transform="translate(30 0) scale(-1,1)"><g class="rc-tailring"><path class="rc-tail rc-cat-2-s" d="M-10 -4 C-22 -8 -27.5 -22 -22 -32 C-19 -37.5 -12.5 -36.5 -12 -30.5"/><g class="rc-ring-set"><circle class="rc-band" cx="-13.5" cy="-27.5" r="5.2"/><circle class="rc-band-hi" cx="-13.5" cy="-27.5" r="3.4"/><path class="rc-gem" d="M-13.5 -38.9 L-10.1 -35.1 L-13.5 -30.9 L-16.9 -35.1 Z"/><path class="rc-gem-facet" d="M-16.9 -35.1 H-10.1 M-13.5 -38.9 V-30.9"/><path class="rc-sparkle" d="M-5.9 -39.9 l1.3 2.7 2.7 1.3 -2.7 1.3 -1.3 2.7 -1.3 -2.7 -2.7 -1.3 2.7 -1.3 Z"/></g></g><path class="rc-cat-2" d="M-11 0 C-15.5 -8 -13.5 -20 -5.5 -25 C-1.5 -27.5 3.5 -26.5 6 -22.5 C8 -19 8 -8 8 0 Z"/><path class="rc-cat-2" d="M3 0 C3 -8 3.5 -13 6 -16 L9 -16 C7 -12 6.5 -7 6.5 0 Z"/><circle class="rc-cat-2" cx="10.5" cy="-29.5" r="7"/><path class="rc-cat-2" d="M5.5 -33.5 L4 -41 L10 -37 Z"/><path class="rc-cat-2" d="M14 -34.5 L16.5 -41 L11 -38.5 Z"/><path class="rc-face" d="M15.5 -28.5 C17 -28 17.6 -27 17.4 -26"/></g>
             </g>
           </g>
+
           <g class="petals"><ellipse class="petal" cx="122.1" cy="-16" rx="2.7" ry="4.6" style="--dur:10.1s;--delay:-10.4s;--spin:2deg"/><ellipse class="petal" cx="133.5" cy="-16" rx="2.7" ry="4.5" style="--dur:9.4s;--delay:-8.1s;--spin:-4deg"/><ellipse class="petal" cx="53.0" cy="-16" rx="3.9" ry="6.7" style="--dur:9.6s;--delay:-6.8s;--spin:-23deg"/><ellipse class="petal" cx="94.7" cy="-16" rx="3.5" ry="6.0" style="--dur:13.4s;--delay:-15.2s;--spin:-6deg"/><ellipse class="petal" cx="299.5" cy="-16" rx="3.1" ry="5.2" style="--dur:9.3s;--delay:-13.7s;--spin:-21deg"/><ellipse class="petal" cx="66.0" cy="-16" rx="2.9" ry="4.9" style="--dur:11.2s;--delay:-13.1s;--spin:5deg"/><ellipse class="petal" cx="207.8" cy="-16" rx="2.7" ry="4.6" style="--dur:11.6s;--delay:-8.8s;--spin:-26deg"/><ellipse class="petal" cx="90.0" cy="-16" rx="3.1" ry="5.3" style="--dur:13.8s;--delay:-6.8s;--spin:5deg"/><ellipse class="petal" cx="157.3" cy="-16" rx="3.7" ry="6.3" style="--dur:11.1s;--delay:-12.7s;--spin:-15deg"/></g>
         </svg>
 
