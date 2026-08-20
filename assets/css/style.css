@@ -638,9 +638,6 @@ button{ font:inherit; color:inherit; }
   margin:5px 0 0; font-family:var(--f-serif); font-style:italic;
   font-size:calc((clamp(13.5px,3.4vw,15.5px)) * var(--fs)); color:var(--ink-soft); letter-spacing:.02em;
 }
-.tl-item--highlight .tl-body{
-  border-left:2px solid rgba(212,175,55,.5); margin-left:-14px; padding-left:12px;
-}
 
 /* =========================================================
    8 · VENUE
