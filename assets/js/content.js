@@ -52,7 +52,7 @@ window.WEDDING = {
     nameHtml: 'Fah <em>&amp;</em> Non',     // <em> = ตัว & สีทอง
     nameTh:   'ฟ้า & นนท์',
     leadEn:   'Together with their families, request the honor of your presence at their wedding celebration.',
-    leadTh:   'ด้วยความยินดีอย่างยิ่ง ครอบครัวของเราขอเรียนเชิญท่าน ร่วมเป็นเกียรติและร่วมอนุโมทนาในพิธีมงคลสมรส',
+    leadTh:   'ด้วยความยินดีอย่างยิ่ง ครอบครัวของเราขอเรียนเชิญท่าน ร่วมเป็นเกียรติในพิธีมงคลสมรส',
     dateTh:   'วันเสาร์ที่ 20 มีนาคม 2570',
     dateEn:   'Saturday, 20 March 2027 · Morning Ceremony',
     scrollLabel: 'Scroll',
@@ -85,18 +85,16 @@ window.WEDDING = {
     //   title     = ชื่อพิธีภาษาไทย  note  = คำอธิบายอังกฤษ (เว้นว่างได้)
     //   highlight = true ทำให้ข้าวหลามตัดหน้าบรรทัดเป็นสีทองทึบ และเวลาเป็นสีทอง
     //               (ใส่ได้หลายบรรทัด หรือไม่ใส่เลยก็ได้)
-    items: [
-      { time: '07:00', unit: 'น.', title: 'พิธีเจริญพระพุทธมนต์ และตักบาตรพระสงฆ์',
-        note: 'Buddhist Chanting & Alms Offering' },
-      { time: '08:30', unit: 'น.', title: 'พิธีแห่ขันหมาก และพิธีหมั้น',
-        note: 'Khan Maak Procession & Engagement Ceremony' },
-      { time: '09:39', unit: 'น.', title: 'พิธีหลั่งน้ำพระพุทธมนต์ (รดน้ำสังข์)',
-        note: 'Water Blessing Ceremony · ฤกษ์มงคล', highlight: true },
-      { time: '11:00', unit: 'น.', title: 'ถวายภัตตาหารเพลแด่พระสงฆ์ และรับประทานอาหารร่วมกัน',
-        note: 'Luncheon Offering · Coffee Break & Light Buffet' },
-      { time: '12:00', unit: 'น.', title: 'เสร็จสิ้นพิธีการ',
-        note: 'End of Ceremony' }
-    ]
+   items: [
+     { time: '08:00', unit: 'น.', title: 'พิธีเจริญพระพุทธมนต์ ตักบาตร และถวายภัตตาหารแด่พระสงฆ์',
+       note: 'Buddhist Chanting, Alms Offering & Food Offering' },
+     { time: '09:00', unit: 'น.', title: 'พิธีหมั้น',
+       note: 'Engagement Ceremony' },
+     { time: '09:39', unit: 'น.', title: 'พิธีหลั่งน้ำพระพุทธมนต์ (รดน้ำสังข์)',
+       note: 'Water Blessing Ceremony · ฤกษ์มงคล', highlight: true },
+     { time: '11:00', unit: 'น.', title: 'เสร็จสิ้นพิธีการ',
+       note: 'Ceremony Concludes' }
+   ]
   },
 
   /* ---------- สถานที่ ---------- */
