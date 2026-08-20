@@ -859,7 +859,7 @@ body.is-revealed .page-sparkles{ opacity:1; }
   display:flex; justify-content:center; margin-top:clamp(12px,2.6vw,18px);
 }
 .orn-svg{
-  width:clamp(140px,34vw,190px); height:auto; overflow:visible;
+  width:clamp(150px,36vw,200px); height:auto; overflow:visible;
   fill:rgba(212,175,55,.8); stroke:rgba(169,138,32,.55); stroke-width:.6;
 }
 .orn-svg .orn-line{ fill:none; stroke:rgba(212,175,55,.55); stroke-width:1; }
@@ -895,20 +895,31 @@ body.is-revealed .page-sparkles{ opacity:1; }
 /* --- timeline finials --- */
 .tl-finial{
   position:absolute; left:clamp(70px,19vw,104px); transform:translateX(-50%);
-  fill:rgba(212,175,55,.75); stroke:rgba(169,138,32,.5); stroke-width:.6;
-  width:16px; height:20px; overflow:visible;
+  fill:rgba(212,175,55,.75); stroke:rgba(169,138,32,.6); stroke-width:.6;
+  width:28px; height:34px; overflow:visible;
 }
-.tl-finial--top{ top:-24px; }
+.tl-finial--top{ fill:none; stroke:rgba(212,175,55,.85); }
+.tl-finial--end{ width:18px; height:18px; }
+.tl-finial--top{ top:-38px; }
 .tl-finial--end{ bottom:-22px; }
 
 /* --- diamond marker sitting on a section boundary --- */
 .sep-mark{
-  position:absolute; left:50%; width:9px; height:9px; z-index:2;
-  transform:translate(-50%,-50%) rotate(45deg);
-  background:var(--ivory); border:1px solid rgba(212,175,55,.65);
+  position:absolute; left:50%; top:0; width:clamp(24px,6vw,32px); aspect-ratio:1; z-index:2;
+  transform:translate(-50%,-50%);
+  display:grid; place-items:center;
 }
-.section--tint > .sep-mark:first-child{ top:0; }
-.sep-mark--bottom{ top:auto; bottom:0; transform:translate(-50%,50%) rotate(45deg); background:var(--ivory-deep); }
+.sep-mark svg{ width:100%; height:100%; overflow:visible;
+  fill:none; stroke:rgba(212,175,55,.75); }
+.sep-mark::before{     /* soft halo so the rule does not cut through the motif */
+  content:""; position:absolute; inset:14%; border-radius:50%;
+  background:radial-gradient(circle, var(--ivory) 40%, rgba(253,251,247,0) 78%);
+}
+.sep-mark svg{ position:relative; }
+.sep-mark--bottom{ top:auto; bottom:0; transform:translate(-50%,50%); }
+.sep-mark--bottom::before{
+  background:radial-gradient(circle, var(--ivory-deep) 40%, rgba(244,239,230,0) 78%);
+}
 
 /* --- footer flourish --- */
 .footer-orn{ display:flex; justify-content:center; margin-bottom:22px; }

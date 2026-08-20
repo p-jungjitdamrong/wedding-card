@@ -193,17 +193,29 @@
     var ns = 'http://www.w3.org/2000/svg';
     var svg = document.createElementNS(ns, 'svg');
     svg.setAttribute('class', 'orn-svg' + (cls ? ' ' + cls : ''));
-    svg.setAttribute('viewBox', '0 0 160 26');
+    svg.setAttribute('viewBox', '0 0 170 32');
     svg.setAttribute('aria-hidden', 'true');
     svg.innerHTML =
-      '<path class="orn-line" d="M2 13 H52"/>' +
-      '<use href="#kanok" transform="translate(60,20) scale(-.5,.5)"/>' +
-      '<use href="#kanok" transform="translate(100,20) scale(.5)"/>' +
-      '<path class="orn-dia" d="M80 6 L87 13 L80 20 L73 13 Z"/>' +
-      '<circle class="orn-dot" cx="66" cy="13" r="1.6"/>' +
-      '<circle class="orn-dot" cx="94" cy="13" r="1.6"/>' +
-      '<path class="orn-line" d="M108 13 H158"/>';
+      '<path class="orn-line" d="M2 16 H50"/>' +
+      '<circle class="orn-dot" cx="56" cy="16" r="1.7"/>' +
+      '<use href="#kanok" transform="translate(64,24) scale(-.5,.5)"/>' +
+      '<use href="#m-rosette" stroke-width="4.6" transform="translate(85,16) scale(.30)"/>' +
+      '<use href="#kanok" transform="translate(106,24) scale(.5)"/>' +
+      '<circle class="orn-dot" cx="114" cy="16" r="1.7"/>' +
+      '<path class="orn-line" d="M120 16 H168"/>';
     return svg;
+  }
+
+  /* small rosette riding a section boundary */
+  function sepMark(extra) {
+    var span = el('span', 'sep-mark' + extra);
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.innerHTML = '<use href="#m-rosette" stroke-width="3.4" transform="translate(50,50) scale(.9)"/>';
+    span.appendChild(svg);
+    return span;
   }
 
   function decorate() {
@@ -239,8 +251,8 @@
       var ns = 'http://www.w3.org/2000/svg';
       var top = document.createElementNS(ns, 'svg');
       top.setAttribute('class', 'tl-finial tl-finial--top');
-      top.setAttribute('viewBox', '0 0 24 30');
-      top.innerHTML = '<use href="#lotus" transform="translate(12,29) scale(.6)"/>';
+      top.setAttribute('viewBox', '0 0 26 32');
+      top.innerHTML = '<use href="#m-flame" stroke-width="5" transform="translate(13,16) scale(.26)"/>';
       tl.appendChild(top);
 
       var end = document.createElementNS(ns, 'svg');
@@ -252,8 +264,8 @@
 
     // diamond markers riding the tinted-section boundaries
     $$('.section--tint').forEach(function (sec) {
-      sec.insertBefore(el('span', 'sep-mark'), sec.firstChild);
-      sec.appendChild(el('span', 'sep-mark sep-mark--bottom'));
+      sec.insertBefore(sepMark(''), sec.firstChild);
+      sec.appendChild(sepMark(' sep-mark--bottom'));
     });
 
     // flourish above the footer monogram
