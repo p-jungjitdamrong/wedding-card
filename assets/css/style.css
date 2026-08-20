@@ -435,6 +435,51 @@ button{ font:inherit; color:inherit; }
   100%{ transform:translate(-6px,478px) rotate(calc(var(--spin,20deg) * 2.4)); opacity:0 }
 }
 
+/* --- date sitting above the couple --- */
+.arch-date{
+  position:absolute; left:0; right:0; top:44%;
+  display:flex; flex-direction:column; align-items:center; gap:.35em;
+  text-align:center; padding-inline:6%;
+}
+.arch-date-th{
+  font-family:var(--f-thai); font-size:clamp(15px,5.6cqw,25px);
+  letter-spacing:.06em; color:var(--ink);
+}
+.arch-date-en{
+  font-family:var(--f-serif); font-size:clamp(8px,2.4cqw,11px);
+  letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep);
+}
+
+/* --- the ring bearers --- */
+.ringcats .rc-cat  { fill:var(--dusty-dark); }
+.ringcats .rc-cat-2{ fill:var(--sage-dark); }
+.ringcats .rc-shadow{ fill:rgba(110,131,140,.14); }
+.ringcats .rc-tail{
+  fill:none; stroke-width:3; stroke-linecap:round;
+  transform-box:fill-box; transform-origin:100% 100%;
+  animation:rcSwish 3.2s ease-in-out infinite;
+}
+.ringcats .rc-cat-s  { stroke:var(--dusty-dark); }
+.ringcats .rc-cat-2-s{ stroke:var(--sage-dark); animation-duration:4.1s; animation-delay:-1.4s; }
+@keyframes rcSwish{ 0%,100%{transform:rotate(-8deg)} 50%{transform:rotate(10deg)} }
+
+.ringcats .rc-face{
+  fill:none; stroke:rgba(255,251,240,.85); stroke-width:1; stroke-linecap:round;
+}
+.ringcats .rc-ribbon{
+  fill:none; stroke:rgba(212,175,55,.9); stroke-width:1.5; stroke-linecap:round;
+}
+.ringcats .rc-ring{
+  fill:none; stroke:var(--gold); stroke-width:2.1;
+}
+.ringcats .rc-ring-inner{ fill:none; stroke:rgba(240,223,166,.7); stroke-width:.7; }
+.ringcats .rc-gem{ fill:var(--gold-soft); stroke:var(--gold-deep); stroke-width:.6; }
+.ringcats .rc-swing{
+  transform-box:fill-box; transform-origin:50% 0;
+  animation:rcSwing 4.6s ease-in-out infinite;
+}
+@keyframes rcSwing{ 0%,100%{transform:rotate(-4.5deg)} 50%{transform:rotate(4.5deg)} }
+
 /* --- the water-blessing scene on the card --- */
 .ritual .rt-fig  { fill:var(--dusty-dark); }
 .ritual .rt-fig-2{ fill:var(--sage-dark); }
@@ -481,7 +526,7 @@ button{ font:inherit; color:inherit; }
 }
 
 .arch-text{
-  position:absolute; left:0; right:0; top:16%;
+  position:absolute; left:0; right:0; top:11%;
   display:flex; flex-direction:column; align-items:center;
   text-align:center; padding-inline:12%;
 }
