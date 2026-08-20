@@ -35,7 +35,10 @@ body{
   overflow-x:hidden;
 }
 
-body.is-locked{ overflow:hidden; height:100dvh; }
+/* the door screen holds the page still — the rule has to sit on <html> too,
+   otherwise the viewport keeps scrolling behind the fixed door stage */
+html.is-locked,
+body.is-locked{ overflow:hidden; height:100%; overscroll-behavior:none; }
 
 img,svg{ max-width:100%; }
 button{ font:inherit; color:inherit; }

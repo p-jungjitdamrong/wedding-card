@@ -16,6 +16,19 @@
     return;
   }
 
+  /* Browsers restore the previous scroll offset on reload. The door screen is
+     position:fixed, so a restored offset stays invisible until the doors open —
+     and the invitation then appears half-way down. Own the scroll instead. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  function jumpToTop() {
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';   // never animate this one
+    window.scrollTo(0, 0);
+    root.style.scrollBehavior = prev;
+  }
+
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var hasGSAP = function () { return typeof window.gsap !== 'undefined'; };
@@ -151,6 +164,9 @@
     var gc = $('#guestCount');
     if (gc) gc.max = max;
   }
+
+  document.documentElement.classList.add('is-locked');
+  jumpToTop();
 
   renderBindings();
   renderTimeline();
@@ -316,8 +332,15 @@
   function showInvite() {
     invite.classList.add('is-visible');
     invite.setAttribute('aria-hidden', 'false');
+
+    // start at the top, then unlock — and re-assert once the browser has
+    // laid the unlocked page out, in case a restore was still queued.
+    jumpToTop();
+    document.documentElement.classList.remove('is-locked');
     document.body.classList.remove('is-locked');
     document.body.classList.add('is-revealed');
+    requestAnimationFrame(jumpToTop);
+    window.setTimeout(jumpToTop, 260);
     animateHero();
     initReveal();
   }
