@@ -36,6 +36,8 @@ body{
   font-weight:300;
   font-size:calc(16px * var(--fs));
   line-height:1.78;
+  font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1;
   letter-spacing:.01em;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
@@ -630,7 +632,8 @@ button{ font:inherit; color:inherit; }
 .cd-num{
   font-family:var(--f-serif); font-weight:300;
   font-size:calc((clamp(28px,8vw,44px)) * var(--fs)); line-height:1;
-  color:var(--dusty-dark); font-variant-numeric:tabular-nums;
+  color:var(--dusty-dark); font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1;
 }
 .cd-lbl{
   font-size:calc((clamp(10px,2.6vw,12px)) * var(--fs)); color:var(--ink-soft); line-height:1.3;
@@ -705,7 +708,8 @@ button{ font:inherit; color:inherit; }
 .tl-time{
   font-family:var(--f-serif); font-size:calc((clamp(19px,4.8vw,25px)) * var(--fs)); font-weight:400;
   color:var(--dusty-dark); text-align:right; line-height:1.25; padding-right:11px;
-  font-variant-numeric:tabular-nums;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1;
 }
 .tl-time em{ font-style:normal; font-family:var(--f-sans); font-size:.52em; color:var(--ink-soft); }
 .tl-item--highlight .tl-time{ color:var(--gold-deep); }
