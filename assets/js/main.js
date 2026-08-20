@@ -261,23 +261,6 @@
       addCorners(frame);
     }
 
-    // lotus finial at the head of the timeline, diamond at its foot
-    var tl = $('#timeline');
-    if (tl) {
-      var ns = 'http://www.w3.org/2000/svg';
-      var top = document.createElementNS(ns, 'svg');
-      top.setAttribute('class', 'tl-finial tl-finial--top');
-      top.setAttribute('viewBox', '0 0 26 32');
-      top.innerHTML = '<use href="#m-flame" stroke-width="5" transform="translate(13,16) scale(.26)"/>';
-      tl.appendChild(top);
-
-      var end = document.createElementNS(ns, 'svg');
-      end.setAttribute('class', 'tl-finial tl-finial--end');
-      end.setAttribute('viewBox', '0 0 24 24');
-      end.innerHTML = '<path d="M12 4 L19 12 L12 20 L5 12 Z"/>';
-      tl.appendChild(end);
-    }
-
     // diamond markers riding the tinted-section boundaries
     $$('.section--tint').forEach(function (sec) {
       sec.insertBefore(sepMark(''), sec.firstChild);
