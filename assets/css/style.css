@@ -12,6 +12,8 @@
 
   --f-script:"Great Vibes", cursive;
   --f-serif:"Cormorant Garamond","Trirong",serif;
+  /* figures only — Cormorant's 1 reads as a capital I */
+  --f-num:"Playfair Display","Cormorant Garamond",serif;
   --f-thai:"Trirong",serif;
   --f-sans:"Noto Sans Thai",ui-sans-serif,system-ui,-apple-system,sans-serif;
 
@@ -630,7 +632,7 @@ button{ font:inherit; color:inherit; }
   box-shadow:var(--shadow-soft);
 }
 .cd-num{
-  font-family:var(--f-serif); font-weight:300;
+  font-family:var(--f-num); font-weight:400;
   font-size:calc((clamp(28px,8vw,44px)) * var(--fs)); line-height:1;
   color:var(--dusty-dark); font-variant-numeric:lining-nums tabular-nums;
   font-feature-settings:"lnum" 1,"tnum" 1;
@@ -644,7 +646,7 @@ button{ font:inherit; color:inherit; }
   letter-spacing:.08em; text-transform:uppercase; color:var(--gold-deep);
 }
 .cd-sep{
-  font-family:var(--f-serif); font-size:clamp(20px,5vw,32px);
+  font-family:var(--f-num); font-size:clamp(20px,5vw,32px);
   color:var(--gold); opacity:.55; padding-top:clamp(12px,3.4vw,22px);
 }
 .countdown-done{
@@ -706,7 +708,7 @@ button{ font:inherit; color:inherit; }
   box-shadow:0 0 0 4px rgba(212,175,55,.18);
 }
 .tl-time{
-  font-family:var(--f-serif); font-size:calc((clamp(19px,4.8vw,25px)) * var(--fs)); font-weight:400;
+  font-family:var(--f-num); font-size:calc((clamp(18px,4.6vw,24px)) * var(--fs)); font-weight:400;
   color:var(--dusty-dark); text-align:right; line-height:1.25; padding-right:11px;
   font-variant-numeric:lining-nums tabular-nums;
   font-feature-settings:"lnum" 1,"tnum" 1;
@@ -890,7 +892,7 @@ input[aria-invalid="true"]{ border-color:#B5695E; }
   letter-spacing:.12em; color:var(--ink-soft); margin:6px 0 0;
 }
 .footer-date{
-  font-family:var(--f-serif); font-size:calc((13px) * var(--fs)); letter-spacing:.5em;
+  font-family:var(--f-num); font-size:calc((13px) * var(--fs)); letter-spacing:.5em;
   color:var(--gold-deep); margin:20px 0 0;
 }
 
