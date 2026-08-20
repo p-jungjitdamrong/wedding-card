@@ -914,6 +914,29 @@ body.is-revealed .page-sparkles{ opacity:1; }
 .footer-orn{ display:flex; justify-content:center; margin-bottom:22px; }
 .footer-orn .orn-svg{ width:clamp(160px,42vw,220px); }
 
+/* --- Loha Prasat watermark behind the whole invitation --- */
+.watermark{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  display:grid; place-items:center; opacity:0;
+  transition:opacity 2s ease .5s;
+}
+body.is-revealed .watermark{ opacity:1; }
+.wm-svg{
+  width:min(190vh,150vw); max-width:1180px; height:auto;
+  opacity:.085; transform:translateY(4%);
+}
+.wm-svg path,.wm-svg circle{
+  fill:none; stroke:var(--dusty-dark); stroke-width:1.6;
+  stroke-linejoin:round; stroke-linecap:round;
+}
+.wm-svg .hair{ stroke-width:.9; opacity:.7; }
+
+/* let the watermark read through the tinted bands */
+.section--tint{ background:rgba(244,239,230,.86); }
+.footer{
+  background:linear-gradient(180deg, rgba(253,251,247,0) 0%, rgba(138,158,167,.16) 100%);
+}
+
 /* =========================================================
    13 · MOTION / PRINT
    ========================================================= */
@@ -929,7 +952,7 @@ body.is-revealed .page-sparkles{ opacity:1; }
 
 @media print{
   .door-stage,.music-toggle,.reveal-bloom,.scroll-hint,.btn-row,
-  .page-sparkles,.page-frame{ display:none !important; }
+  .page-sparkles,.page-frame,.watermark{ display:none !important; }
   .invite{ opacity:1 !important; visibility:visible !important; }
   .reveal,[data-hero]{ opacity:1 !important; transform:none !important; }
   body{ background:#fff; }
