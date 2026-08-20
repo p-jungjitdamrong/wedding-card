@@ -813,6 +813,108 @@ input[aria-invalid="true"]{ border-color:#B5695E; }
 [data-hero]{ opacity:0; transform:translateY(18px); }
 
 /* =========================================================
+   14 · PAGE-WIDE DECORATION
+   ========================================================= */
+
+/* --- faint paper grain over the whole invitation --- */
+.invite::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:
+    repeating-linear-gradient(58deg,  rgba(138,158,167,.05) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(-58deg, rgba(212,175,55,.035) 0 1px, transparent 1px 7px);
+}
+.invite > *{ position:relative; z-index:1; }
+
+/* --- thin gold frame with kanok corners --- */
+.page-frame{
+  position:fixed; z-index:44; pointer-events:none; opacity:0;
+  inset:max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right))
+        max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+  border:1px solid rgba(212,175,55,.22);
+  transition:opacity 1.4s ease .3s;
+}
+body.is-revealed .page-frame{ opacity:1; }
+
+.pf-corner{
+  position:absolute; width:clamp(34px,7vw,54px); height:clamp(34px,7vw,54px);
+  fill:rgba(212,175,55,.55); stroke:rgba(212,175,55,.55); stroke-width:.6;
+  overflow:visible;
+}
+.pf-corner .pf-l{ fill:none; stroke:rgba(212,175,55,.62); stroke-width:1.4; }
+.pf-corner .pf-hair{ stroke:rgba(212,175,55,.3); stroke-width:.7; }
+.pf-tl{ top:-1px; left:-1px; }
+.pf-tr{ top:-1px; right:-1px; transform:scaleX(-1); }
+.pf-bl{ bottom:-1px; left:-1px; transform:scaleY(-1); }
+.pf-br{ bottom:-1px; right:-1px; transform:scale(-1); }
+
+/* --- ambient sparkles across the whole page --- */
+.page-sparkles{
+  position:fixed; inset:0; z-index:43; pointer-events:none; overflow:hidden; opacity:0;
+  transition:opacity 1.6s ease .4s;
+}
+body.is-revealed .page-sparkles{ opacity:1; }
+
+/* --- ornament under every section title --- */
+.title-orn{
+  display:flex; justify-content:center; margin-top:clamp(12px,2.6vw,18px);
+}
+.orn-svg{
+  width:clamp(140px,34vw,190px); height:auto; overflow:visible;
+  fill:rgba(212,175,55,.8); stroke:rgba(169,138,32,.55); stroke-width:.6;
+}
+.orn-svg .orn-line{ fill:none; stroke:rgba(212,175,55,.55); stroke-width:1; }
+.orn-svg .orn-dia{ fill:rgba(212,175,55,.9); stroke:none; }
+.orn-svg .orn-dot{ fill:rgba(212,175,55,.55); stroke:none; }
+
+/* --- gold corner brackets (cards, art frame, countdown cells) --- */
+.corner{
+  position:absolute; width:14px; height:14px; pointer-events:none;
+  border:0 solid rgba(212,175,55,.6);
+}
+.corner-tl{ top:8px;  left:8px;  border-top-width:1px; border-left-width:1px;  }
+.corner-tr{ top:8px;  right:8px; border-top-width:1px; border-right-width:1px; }
+.corner-bl{ bottom:8px; left:8px;  border-bottom-width:1px; border-left-width:1px;  }
+.corner-br{ bottom:8px; right:8px; border-bottom-width:1px; border-right-width:1px; }
+.cd-cell .corner{ width:9px; height:9px; }
+.cd-cell .corner-tl,.cd-cell .corner-tr{ top:5px; }
+.cd-cell .corner-bl,.cd-cell .corner-br{ bottom:5px; }
+.cd-cell .corner-tl,.cd-cell .corner-bl{ left:5px; }
+.cd-cell .corner-tr,.cd-cell .corner-br{ right:5px; }
+
+.card,.cd-cell,.art-frame{ position:relative; }
+
+/* --- framed venue artwork --- */
+.art-frame{
+  padding:clamp(14px,3.4vw,22px);
+  border:1px solid rgba(143,158,139,.3);
+  border-radius:3px;
+  background:linear-gradient(168deg, rgba(255,255,255,.5), rgba(244,239,230,.35));
+  max-width:470px; margin-inline:auto;
+}
+
+/* --- timeline finials --- */
+.tl-finial{
+  position:absolute; left:clamp(70px,19vw,104px); transform:translateX(-50%);
+  fill:rgba(212,175,55,.75); stroke:rgba(169,138,32,.5); stroke-width:.6;
+  width:16px; height:20px; overflow:visible;
+}
+.tl-finial--top{ top:-24px; }
+.tl-finial--end{ bottom:-22px; }
+
+/* --- diamond marker sitting on a section boundary --- */
+.sep-mark{
+  position:absolute; left:50%; width:9px; height:9px; z-index:2;
+  transform:translate(-50%,-50%) rotate(45deg);
+  background:var(--ivory); border:1px solid rgba(212,175,55,.65);
+}
+.section--tint > .sep-mark:first-child{ top:0; }
+.sep-mark--bottom{ top:auto; bottom:0; transform:translate(-50%,50%) rotate(45deg); background:var(--ivory-deep); }
+
+/* --- footer flourish --- */
+.footer-orn{ display:flex; justify-content:center; margin-bottom:22px; }
+.footer-orn .orn-svg{ width:clamp(160px,42vw,220px); }
+
+/* =========================================================
    13 · MOTION / PRINT
    ========================================================= */
 @media (prefers-reduced-motion:reduce){
@@ -822,11 +924,12 @@ input[aria-invalid="true"]{ border-color:#B5695E; }
     transition-duration:.001ms !important;
   }
   .reveal,[data-hero]{ opacity:1 !important; transform:none !important; }
-  .sparkle,.arch-spark,.card-sheen::after,.door-sheen{ display:none !important; }
+  .sparkle,.arch-spark,.card-sheen::after,.door-sheen,.page-sparkles{ display:none !important; }
 }
 
 @media print{
-  .door-stage,.music-toggle,.reveal-bloom,.scroll-hint,.btn-row{ display:none !important; }
+  .door-stage,.music-toggle,.reveal-bloom,.scroll-hint,.btn-row,
+  .page-sparkles,.page-frame{ display:none !important; }
   .invite{ opacity:1 !important; visibility:visible !important; }
   .reveal,[data-hero]{ opacity:1 !important; transform:none !important; }
   body{ background:#fff; }

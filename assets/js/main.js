@@ -158,6 +158,116 @@
   renderRsvp();
 
   /* ======================================================
+     0b · PAGE DECORATION
+     ====================================================== */
+
+  /* scatter twinkling sparks into any container */
+  function scatterSparkles(host, count, minSize, maxSize) {
+    if (reduceMotion || !host) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < count; i++) {
+      var sp = document.createElement('span');
+      sp.className = 'sparkle';
+      sp.style.setProperty('--s', (minSize + Math.random() * (maxSize - minSize)).toFixed(1) + 'px');
+      sp.style.setProperty('--dur', (3.4 + Math.random() * 4.2).toFixed(1) + 's');
+      sp.style.setProperty('--delay', (Math.random() * 9).toFixed(1) + 's');
+      sp.style.left = (2 + Math.random() * 94).toFixed(1) + '%';
+      sp.style.top  = (2 + Math.random() * 94).toFixed(1) + '%';
+      frag.appendChild(sp);
+    }
+    host.appendChild(frag);
+  }
+
+  scatterSparkles($('#sparkles'), 14, 9, 22);                                   // on the card
+  scatterSparkles($('#pageSparkles'), window.innerWidth < 640 ? 16 : 26, 6, 15); // everywhere else
+
+  /* gold bracket in each corner of a box */
+  function addCorners(box) {
+    ['tl', 'tr', 'bl', 'br'].forEach(function (pos) {
+      box.appendChild(el('span', 'corner corner-' + pos));
+    });
+  }
+
+  /* a flourish: hairline — kanok — diamond — kanok — hairline */
+  function ornamentSvg(cls) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('class', 'orn-svg' + (cls ? ' ' + cls : ''));
+    svg.setAttribute('viewBox', '0 0 160 26');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.innerHTML =
+      '<path class="orn-line" d="M2 13 H52"/>' +
+      '<use href="#kanok" transform="translate(60,20) scale(-.5,.5)"/>' +
+      '<use href="#kanok" transform="translate(100,20) scale(.5)"/>' +
+      '<path class="orn-dia" d="M80 6 L87 13 L80 20 L73 13 Z"/>' +
+      '<circle class="orn-dot" cx="66" cy="13" r="1.6"/>' +
+      '<circle class="orn-dot" cx="94" cy="13" r="1.6"/>' +
+      '<path class="orn-line" d="M108 13 H158"/>';
+    return svg;
+  }
+
+  function decorate() {
+    // flourish below every section heading — after its subtitle/date line, not between them
+    $$('.section-title').forEach(function (title) {
+      var last = title;
+      while (last.nextElementSibling &&
+             /section-(sub|date)/.test(last.nextElementSibling.className)) {
+        last = last.nextElementSibling;
+      }
+      var wrap = el('div', 'title-orn reveal');
+      wrap.appendChild(ornamentSvg());
+      last.parentNode.insertBefore(wrap, last.nextSibling);
+    });
+
+    // brackets on cards and countdown cells
+    $$('.card').forEach(addCorners);
+    $$('.cd-cell').forEach(addCorners);
+
+    // frame the venue artwork
+    var art = $('.lohaprasat');
+    if (art && art.parentNode) {
+      var frame = el('div', 'art-frame reveal');
+      art.parentNode.insertBefore(frame, art);
+      frame.appendChild(art);
+      art.classList.remove('reveal');
+      addCorners(frame);
+    }
+
+    // lotus finial at the head of the timeline, diamond at its foot
+    var tl = $('#timeline');
+    if (tl) {
+      var ns = 'http://www.w3.org/2000/svg';
+      var top = document.createElementNS(ns, 'svg');
+      top.setAttribute('class', 'tl-finial tl-finial--top');
+      top.setAttribute('viewBox', '0 0 24 30');
+      top.innerHTML = '<use href="#lotus" transform="translate(12,29) scale(.6)"/>';
+      tl.appendChild(top);
+
+      var end = document.createElementNS(ns, 'svg');
+      end.setAttribute('class', 'tl-finial tl-finial--end');
+      end.setAttribute('viewBox', '0 0 24 24');
+      end.innerHTML = '<path d="M12 4 L19 12 L12 20 L5 12 Z"/>';
+      tl.appendChild(end);
+    }
+
+    // diamond markers riding the tinted-section boundaries
+    $$('.section--tint').forEach(function (sec) {
+      sec.insertBefore(el('span', 'sep-mark'), sec.firstChild);
+      sec.appendChild(el('span', 'sep-mark sep-mark--bottom'));
+    });
+
+    // flourish above the footer monogram
+    var fm = $('.footer-mono');
+    if (fm && fm.parentNode) {
+      var f = el('div', 'footer-orn reveal');
+      f.appendChild(ornamentSvg());
+      fm.parentNode.insertBefore(f, fm);
+    }
+  }
+
+  decorate();
+
+  /* ======================================================
      1 · DOOR OPENING
      ====================================================== */
   var stage     = $('#doorStage');
@@ -191,29 +301,11 @@
     host.appendChild(frag);
   })();
 
-  /* twinkling gold sparks scattered over the invitation card */
-  (function makeSparkles() {
-    if (reduceMotion) return;
-    var host = document.getElementById('sparkles');
-    if (!host) return;
-    var frag = document.createDocumentFragment();
-    for (var i = 0; i < 14; i++) {
-      var sp = document.createElement('span');
-      sp.className = 'sparkle';
-      sp.style.setProperty('--s', (9 + Math.random() * 13).toFixed(1) + 'px');
-      sp.style.setProperty('--dur', (3.4 + Math.random() * 3.6).toFixed(1) + 's');
-      sp.style.setProperty('--delay', (Math.random() * 7).toFixed(1) + 's');
-      sp.style.left = (6 + Math.random() * 86).toFixed(1) + '%';
-      sp.style.top  = (6 + Math.random() * 86).toFixed(1) + '%';
-      frag.appendChild(sp);
-    }
-    host.appendChild(frag);
-  })();
-
   function showInvite() {
     invite.classList.add('is-visible');
     invite.setAttribute('aria-hidden', 'false');
     document.body.classList.remove('is-locked');
+    document.body.classList.add('is-revealed');
     animateHero();
     initReveal();
   }

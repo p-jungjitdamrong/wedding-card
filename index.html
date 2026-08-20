@@ -40,7 +40,7 @@
   };
 </script>
 
-<link rel="stylesheet" href="assets/css/style.css?v=5" />
+<link rel="stylesheet" href="assets/css/style.css?v=6" />
 </head>
 
 <body class="is-locked">
@@ -147,6 +147,32 @@
 </div>
 
 <div class="reveal-bloom" id="revealBloom" aria-hidden="true"></div>
+
+<!-- ===== page-wide decoration (fades in once the doors open) ===== -->
+<div class="page-frame" aria-hidden="true">
+  <svg class="pf-corner pf-tl" viewBox="0 0 64 64">
+    <path class="pf-l" d="M1 34 V1 H34"/>
+    <path class="pf-l pf-hair" d="M7 34 V7 H34"/>
+    <use href="#kanok" transform="translate(11,13) scale(.95,-.95)"/>
+  </svg>
+  <svg class="pf-corner pf-tr" viewBox="0 0 64 64">
+    <path class="pf-l" d="M1 34 V1 H34"/>
+    <path class="pf-l pf-hair" d="M7 34 V7 H34"/>
+    <use href="#kanok" transform="translate(11,13) scale(.95,-.95)"/>
+  </svg>
+  <svg class="pf-corner pf-bl" viewBox="0 0 64 64">
+    <path class="pf-l" d="M1 34 V1 H34"/>
+    <path class="pf-l pf-hair" d="M7 34 V7 H34"/>
+    <use href="#kanok" transform="translate(11,13) scale(.95,-.95)"/>
+  </svg>
+  <svg class="pf-corner pf-br" viewBox="0 0 64 64">
+    <path class="pf-l" d="M1 34 V1 H34"/>
+    <path class="pf-l pf-hair" d="M7 34 V7 H34"/>
+    <use href="#kanok" transform="translate(11,13) scale(.95,-.95)"/>
+  </svg>
+</div>
+
+<div class="page-sparkles" id="pageSparkles" aria-hidden="true"></div>
 
 <!-- Music toggle -->
 <button type="button" class="music-toggle" id="musicToggle" aria-pressed="false" aria-label="เปิด/ปิดเสียงเพลงประกอบ" hidden>
@@ -526,6 +552,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="assets/js/content.js?v=1" defer></script>
-<script src="assets/js/main.js?v=6" defer></script>
+<script src="assets/js/main.js?v=8" defer></script>
 </body>
 </html>
