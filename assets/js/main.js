@@ -360,7 +360,9 @@
           { opacity: 1, y: 0, scale: 1, duration: 1.25, ease: 'power3.out' }, 0)
         .fromTo(items,
           { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.12, clearProps: 'transform' }, 0.35);
+          // no clearProps here: [data-hero] carries transform:translateY(18px) in
+          // CSS, so stripping the inline transform drops the text back down.
+          { opacity: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.12 }, 0.35);
     } else {
       archCard.style.transition = 'opacity 1.1s ease, transform 1.1s cubic-bezier(.22,.9,.24,1)';
       archCard.style.opacity = 1;
