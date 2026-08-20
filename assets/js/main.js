@@ -267,6 +267,12 @@
       sec.appendChild(sepMark(' sep-mark--bottom'));
     });
 
+    // the closing scene can be switched off from the config
+    if (W.footer.scene === false) {
+      var fw = $('#farewell');
+      if (fw) fw.remove();
+    }
+
     // flourish above the footer monogram
     var fm = $('.footer-mono');
     if (fm && fm.parentNode) {

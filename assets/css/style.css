@@ -945,6 +945,52 @@ body.is-revealed .watermark{ opacity:1; }
   background:linear-gradient(180deg, rgba(253,251,247,0) 0%, rgba(138,158,167,.16) 100%);
 }
 
+/* --- closing scene: the couple and their cats --- */
+.farewell{
+  width:min(94%,430px); margin:clamp(28px,6vw,44px) auto 0;
+}
+.fw-svg{ width:100%; height:auto; display:block; overflow:visible; }
+
+.fw-svg .fig  { fill:var(--dusty-dark); }
+.fw-svg .fig-2{ fill:var(--sage-dark); }
+.fw-svg .cat  { fill:var(--dusty-dark); stroke:var(--dusty-dark); }
+.fw-svg .cat-2{ fill:var(--sage-dark); stroke:var(--sage-dark); }
+.fw-svg .accent{ fill:none; stroke:var(--gold); stroke-width:1.6; stroke-linecap:round; }
+.fw-svg .ground{ fill:none; stroke:var(--gold); stroke-width:1; opacity:.45; }
+.fw-svg .shadow{ fill:rgba(110,131,140,.16); }
+.fw-svg .fw-spark-fill{ fill:var(--gold); }
+
+.fw-svg .sway{
+  transform-box:fill-box; transform-origin:50% 100%;
+  animation:fwSway 6.5s ease-in-out infinite;
+}
+.fw-svg .sway--b{ animation-duration:7.4s; animation-delay:-2s; }
+@keyframes fwSway{ 0%,100%{transform:rotate(-.7deg)} 50%{transform:rotate(.7deg)} }
+
+.fw-svg .tail{
+  transform-box:fill-box; transform-origin:100% 100%;
+  animation:fwSwish 2.8s ease-in-out infinite;
+}
+.fw-svg .tail--b{ transform-origin:0% 100%; animation-duration:3.6s; animation-delay:-1.2s; }
+@keyframes fwSwish{ 0%,100%{transform:rotate(-9deg)} 50%{transform:rotate(11deg)} }
+
+.fw-svg .ear{
+  transform-box:fill-box; transform-origin:50% 100%;
+  animation:fwTwitch 5s ease-in-out infinite;
+}
+.fw-svg .ear--b{ animation-delay:-2.6s; }
+@keyframes fwTwitch{
+  0%,86%,100%{transform:rotate(0)} 90%{transform:rotate(-13deg)} 94%{transform:rotate(6deg)}
+}
+
+.fw-svg .spark{
+  transform-box:fill-box; transform-origin:50% 50%;
+  animation:fwTwinkle 3.6s ease-in-out infinite;
+}
+.fw-svg .spark:nth-of-type(2){ animation-delay:-1.3s; }
+.fw-svg .spark:nth-of-type(3){ animation-delay:-2.4s; }
+@keyframes fwTwinkle{ 0%,100%{opacity:0;transform:scale(.4)} 45%{opacity:1;transform:scale(1)} }
+
 /* =========================================================
    13 · MOTION / PRINT
    ========================================================= */
