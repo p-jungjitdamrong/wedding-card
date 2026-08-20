@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;500&family=Trirong:wght@300;400&family=Noto+Sans+Thai:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  html,body{margin:0;padding:0;width:1200px;height:630px;overflow:hidden}
+  body{background:linear-gradient(150deg,#FFFDF9 0%,#FDFBF7 45%,#F6F0E4 100%);
+       display:flex;align-items:center;justify-content:center;position:relative}
+  .og-grain{position:absolute;inset:0;opacity:.5;
+    background-image:repeating-linear-gradient(58deg,rgba(138,158,167,.05) 0 1px,transparent 1px 5px),
+                     repeating-linear-gradient(-58deg,rgba(212,175,55,.035) 0 1px,transparent 1px 7px)}
+  .og-frame{position:absolute;inset:22px;border:1px solid rgba(212,175,55,.5)}
+  .og-frame::after{content:"";position:absolute;inset:9px;border:1px solid rgba(212,175,55,.22)}
+  .og-corner{position:absolute;width:76px;height:76px;fill:rgba(212,175,55,.8);
+             stroke:rgba(212,175,55,.8);stroke-width:.6;overflow:visible}
+  .og-corner .pf-l{fill:none;stroke:rgba(212,175,55,.7);stroke-width:1.6}
+  .c-tl{top:12px;left:12px}.c-tr{top:12px;right:12px;transform:scaleX(-1)}
+  .c-bl{bottom:12px;left:12px;transform:scaleY(-1)}.c-br{bottom:12px;right:12px;transform:scale(-1)}
+
+  .og-wrap{display:flex;align-items:center;gap:36px;position:relative;z-index:2}
+  .og-text{width:640px;text-align:center}
+  .og-eyebrow{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:22px;
+    letter-spacing:.34em;text-transform:uppercase;color:#96771A;margin:0}
+  .og-name{font-family:"Great Vibes",cursive;font-size:118px;line-height:1.05;
+    color:#6E838C;margin:14px 0 0}
+  .og-name em{font-style:normal;color:#D4AF37;font-size:.74em}
+  .og-name-th{font-family:"Trirong",serif;font-weight:300;font-size:40px;
+    letter-spacing:.2em;color:#71806D;margin:6px 0 0}
+  .og-div{display:flex;align-items:center;justify-content:center;gap:16px;margin:22px 0 0}
+  .og-div span{height:1px;width:110px;background:linear-gradient(90deg,transparent,#D4AF37)}
+  .og-div span:last-child{background:linear-gradient(90deg,#D4AF37,transparent)}
+  .og-div svg{width:26px;height:14px;fill:none;stroke:#D4AF37;stroke-width:1}
+  .og-div .fill{fill:#D4AF37;stroke:none}
+  .og-date{font-family:"Trirong",serif;font-size:38px;letter-spacing:.05em;color:#3B3A36;margin:22px 0 0}
+  .og-date-en{font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:.13em;
+    text-transform:uppercase;color:#A98A20;margin:8px 0 0;white-space:nowrap;
+    font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+  .og-art{width:432px;height:372px;position:relative}
+  .og-art svg{width:100%;height:100%}
+  .og-art .rt-glow{animation:none;opacity:.85}
+  .og-art .rc-unit,.og-art .rc-tailring,.og-art .malai,.og-art .rt-side{animation:none}
+</style></head><body>
+<svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <!-- Thai kanok flame (เปลวกนก) -->
+    <g id="kanok">
+      <path d="M0 0 C1.5 -11 7 -21.5 19.5 -31 C11.5 -18.5 8.5 -8.5 7.5 -1.5 C5.5 2.5 2 2.5 0 0 Z"/>
+      <path fill="none" d="M3.2 -2.6 C5 -10 8.5 -18 14.5 -24.5"/>
+    </g>
+    <!-- Thai rosettes: ดอกประจำยาม · ดอกสี่ทิศประกอบเปลว · ลายเปลว -->
+    <g id="m-rosette" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <g transform="translate(-50,-50)"><g transform="rotate(0.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><g transform="rotate(45.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><g transform="rotate(90.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><g transform="rotate(135.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><g transform="rotate(180.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><g transform="rotate(225.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><g transform="rotate(270.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><g transform="rotate(315.00 50 50)"><path d="M50 31 C36.5 26.14 36.5 15.34 50 4 C63.5 15.34 63.5 26.14 50 31 Z"/></g><circle cx="50" cy="50" r="16"/><circle cx="50" cy="50" r="10"/></g>
+    </g>
+    <g id="m-fourflame" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <g transform="translate(-50,-50)"><g transform="rotate(0.00 50 50)"><path d="M50 32 L34 20 L50 2 L66 20 Z"/></g><g transform="rotate(90.00 50 50)"><path d="M50 32 L34 20 L50 2 L66 20 Z"/></g><g transform="rotate(180.00 50 50)"><path d="M50 32 L34 20 L50 2 L66 20 Z"/></g><g transform="rotate(270.00 50 50)"><path d="M50 32 L34 20 L50 2 L66 20 Z"/></g><g transform="rotate(45.00 50 50)"><path d="M50 9 C43.76 15.9 38 24.18 42.8 32 C47.36 34.76 52.64 34.76 57.2 32 C62 24.18 56.24 15.9 50 9 Z"/><path d="M50 15.9 C46.4 20.96 43.76 26.02 50 29.7 C56.24 26.02 53.6 20.96 50 15.9 Z"/></g><g transform="rotate(135.00 50 50)"><path d="M50 9 C43.76 15.9 38 24.18 42.8 32 C47.36 34.76 52.64 34.76 57.2 32 C62 24.18 56.24 15.9 50 9 Z"/><path d="M50 15.9 C46.4 20.96 43.76 26.02 50 29.7 C56.24 26.02 53.6 20.96 50 15.9 Z"/></g><g transform="rotate(225.00 50 50)"><path d="M50 9 C43.76 15.9 38 24.18 42.8 32 C47.36 34.76 52.64 34.76 57.2 32 C62 24.18 56.24 15.9 50 9 Z"/><path d="M50 15.9 C46.4 20.96 43.76 26.02 50 29.7 C56.24 26.02 53.6 20.96 50 15.9 Z"/></g><g transform="rotate(315.00 50 50)"><path d="M50 9 C43.76 15.9 38 24.18 42.8 32 C47.36 34.76 52.64 34.76 57.2 32 C62 24.18 56.24 15.9 50 9 Z"/><path d="M50 15.9 C46.4 20.96 43.76 26.02 50 29.7 C56.24 26.02 53.6 20.96 50 15.9 Z"/></g><circle cx="50" cy="50" r="15.5"/><circle cx="50" cy="50" r="9.5"/></g>
+    </g>
+    <g id="m-flame" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <g transform="translate(-50,-50)"><path d="M50 6 C46 18 40 24 34 30 C40 30 44 28 47 25 C45 33 40 38 33 43 C29 46 26 51 26 57 C26 68 34 76 44 78 C40 73 39 68 41 63 C43 58 47 55 50 51 C53 55 57 58 59 63 C61 68 60 73 56 78 C66 76 74 68 74 57 C74 51 71 46 67 43 C60 38 55 33 53 25 C56 28 60 30 66 30 C60 24 54 18 50 6 Z"/><path d="M50 55 C46 60 44 65 45 70 C46 75 50 78 50 78 C50 78 54 75 55 70 C56 65 54 60 50 55 Z"/></g>
+    </g>
+
+    <!-- lotus bud finial -->
+    <g id="lotus">
+      <path d="M0 0 C-8 -6 -11.5 -16 0 -31 C11.5 -16 8 -6 0 0 Z"/>
+      <path fill="none" d="M0 -6 C-4.5 -12 -4.5 -19 0 -25 C4.5 -19 4.5 -12 0 -6 Z"/>
+      <path fill="none" d="M-10 .5 C-5.5 -3 5.5 -3 10 .5"/>
+    </g>
+    <!-- temple spire -->
+    <g id="spire" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-7 0 L7 0"/>
+      <path d="M-5.5 0 L-4.6 -7 L-3.4 -20 L0 -33 L3.4 -20 L4.6 -7 L5.5 0 Z"/>
+      <path d="M-3.6 -13 L3.6 -13"/>
+      <circle cx="0" cy="-36.5" r="2.1"/>
+      <path d="M0 -38.6 L0 -46"/>
+    </g>
+
+    <radialGradient id="waxGrad" cx="36%" cy="30%" r="76%">
+      <stop offset="0%"   stop-color="#F6E5B0"/>
+      <stop offset="40%"  stop-color="#DEBA4E"/>
+      <stop offset="76%"  stop-color="#B8912A"/>
+      <stop offset="100%" stop-color="#8A6912"/>
+    </radialGradient>
+    <linearGradient id="sunrise" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FDF8EC"/>
+      <stop offset="32%"  stop-color="#F7E9C9"/>
+      <stop offset="58%"  stop-color="#EEDDBE"/>
+      <stop offset="80%"  stop-color="#D9DAD0"/>
+      <stop offset="100%" stop-color="#BFCBC6"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="66%" r="42%">
+      <stop offset="0%"   stop-color="#FFF0BE" stop-opacity=".95"/>
+      <stop offset="55%"  stop-color="#FFEDC0" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#FFEDC0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+<div class="og-grain"></div>
+<div class="og-frame"></div>
+<svg class="og-corner c-tl" viewBox="0 0 64 64"><path class="pf-l" d="M1 34 V1 H34"/><use href="#m-fourflame" stroke-width="4.2" transform="translate(23,23) scale(.32)"/></svg>
+<svg class="og-corner c-tr" viewBox="0 0 64 64"><path class="pf-l" d="M1 34 V1 H34"/><use href="#m-fourflame" stroke-width="4.2" transform="translate(23,23) scale(.32)"/></svg>
+<svg class="og-corner c-bl" viewBox="0 0 64 64"><path class="pf-l" d="M1 34 V1 H34"/><use href="#m-fourflame" stroke-width="4.2" transform="translate(23,23) scale(.32)"/></svg>
+<svg class="og-corner c-br" viewBox="0 0 64 64"><path class="pf-l" d="M1 34 V1 H34"/><use href="#m-fourflame" stroke-width="4.2" transform="translate(23,23) scale(.32)"/></svg>
+
+<div class="og-wrap">
+  <div class="og-text">
+    <p class="og-eyebrow">The Wedding Ceremony of</p>
+    <h1 class="og-name">Fah <em>&amp;</em> Non</h1>
+    <p class="og-name-th">ฟ้า &amp; นนท์</p>
+    <div class="og-div"><span></span>
+      <svg viewBox="0 0 40 20"><path d="M20 2 L26 10 L20 18 L14 10 Z"/><path class="fill" d="M20 6.5 L23 10 L20 13.5 L17 10 Z"/></svg>
+      <span></span></div>
+    <p class="og-date">วันเสาร์ที่ 20 มีนาคม 2570</p>
+    <p class="og-date-en">Saturday, 20 March 2027 · Morning Ceremony</p>
+  </div>
+  <div class="og-art">
+    <svg viewBox="56 258 228 196" xmlns="http://www.w3.org/2000/svg">
+      <ellipse class="rt-glow" cx="170" cy="330" rx="118" ry="86" fill="url(#sunGlow)"/>
+<g class="ringcats">
+            <g class="rc-unit rc-unit--l" transform="translate(94 374) scale(1.2)"><g class="rc-tailring"><path class="rc-tail rc-cat-s" d="M-8 -2 c-10 0 -15 -9 -12 -18 c1.5 -4.5 6 -5 6.5 -0.5" fill="none" stroke-width="3.4" stroke-linecap="round"/><circle class="rc-band rc-band--groom" cx="-14" cy="-24" r="5.6"/><circle class="rc-band-hi" cx="-14" cy="-24" r="3.2"/></g><path class="rc-cat" d="M-8 0 c-5 -6 -4 -18 2 -24 c2 -2 4 -3 6 -3 c2 0 4 1 6 3 c6 6 7 18 2 24 Z"/><circle class="rc-cat" cx="0" cy="-31" r="7.4"/><path class="rc-cat" d="M-6 -35 l-1.5 -8.5 6.5 4.5 Z"/><path class="rc-cat" d="M6 -35 l1.5 -8.5 -6.5 4.5 Z"/></g>
+            <g class="rc-unit rc-unit--r" transform="translate(258 374) scale(-1.2,1.2)"><g class="rc-tailring"><path class="rc-tail rc-cat-2-s" d="M-8 -2 c-10 0 -15 -9 -12 -18 c1.5 -4.5 6 -5 6.5 -0.5" fill="none" stroke-width="3.4" stroke-linecap="round"/><circle class="rc-band" cx="-14" cy="-24" r="5.4"/><circle class="rc-band-hi" cx="-14" cy="-24" r="3.5"/><path class="rc-gem" d="M-14 -35.6 L-10.5 -31.8 L-14 -28 L-17.5 -31.8 Z"/><path class="rc-gem-facet" d="M-17.5 -31.8 H-10.5 M-14 -35.6 V-28"/><path class="rc-sparkle" d="M-6.2 -36.6 l1.5 3.1 3.1 1.5 -3.1 1.5 -1.5 3.1 -1.5 -3.1 -3.1 -1.5 3.1 -1.5 Z"/><path class="rc-sparkle rc-sparkle--b" d="M-22.4 -28.2 l1 2.1 2.1 1 -2.1 1 -1 2.1 -1 -2.1 -2.1 -1 2.1 -1 Z"/></g><path class="rc-cat-2" d="M-8 0 c-5 -6 -4 -18 2 -24 c2 -2 4 -3 6 -3 c2 0 4 1 6 3 c6 6 7 18 2 24 Z"/><circle class="rc-cat-2" cx="0" cy="-31" r="7.4"/><path class="rc-cat-2" d="M-6 -35 l-1.5 -8.5 6.5 4.5 Z"/><path class="rc-cat-2" d="M6 -35 l1.5 -8.5 -6.5 4.5 Z"/></g>
+          </g>
+<g class="ritual" transform="translate(170 400) scale(1.38)">
+            <path class="rt-floor" d="M-112 1 H112"/>
+            <g class="rt-side"><path class="rt-table" d="M-30 -21 h60 v5.5 h-60 Z"/><path class="rt-table-leg" d="M-23 -15.5 v14 M23 -15.5 v14 M-27 -1.5 h54"/><ellipse class="rt-cushion" cx="0" cy="-27" rx="26" ry="8"/><path class="rt-cushion-line" d="M-20 -30.5 C-8 -33.5 8 -33.5 20 -30.5"/><path class="rt-fig" d="M-12.5 -32 C-15 -48 -11 -60 0 -60 C11 -60 15 -48 12.5 -32 Z"/><path class="rt-fig" d="M-13.6 -54 C-19 -47 -20 -38 -16 -31.5 L-10.4 -31.5 C-13 -38 -12 -46 -8.6 -51.5 Z"/><path class="rt-fig" d="M13.6 -54 C19 -47 20 -38 16 -31.5 L10.4 -31.5 C13 -38 12 -46 8.6 -51.5 Z"/><path class="rt-hand" d="M-9 -31.5 C-9 -35 -4 -36.5 0 -36.5 C4 -36.5 9 -35 9 -31.5 Z"/><circle class="rt-fig" cx="0" cy="-70.5" r="9.8"/><path class="rt-fig" d="M-9.9 -72.5 C-9.3 -79.5 -5 -82.8 0 -82.8 C5 -82.8 9.3 -79.5 9.9 -72.5 C7.2 -77.6 4.1 -79.2 0 -79.2 C-4.1 -79.2 -7.2 -77.6 -9.9 -72.5 Z"/><path class="rt-malai" d="M-8.8 -60.5 C-9.2 -52.5 -4.7 -49 0 -49 C4.7 -49 9.2 -52.5 8.8 -60.5"/><circle class="rt-bud" cx="-6.6" cy="-52.0" r="2"/><circle class="rt-bud" cx="-3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="0.0" cy="-49.4" r="2"/><circle class="rt-bud" cx="3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="6.6" cy="-52.0" r="2"/><ellipse class="rt-mongkol" cx="0" cy="-80.8" rx="10.9" ry="3.4"/></g>
+            <g class="rt-side rt-side--b"><path class="rt-table" d="M-30 -21 h60 v5.5 h-60 Z"/><path class="rt-table-leg" d="M-23 -15.5 v14 M23 -15.5 v14 M-27 -1.5 h54"/><ellipse class="rt-cushion" cx="0" cy="-27" rx="26" ry="8"/><path class="rt-cushion-line" d="M-20 -30.5 C-8 -33.5 8 -33.5 20 -30.5"/><path class="rt-fig-2" d="M-12.5 -32 C-15 -48 -11 -60 0 -60 C11 -60 15 -48 12.5 -32 Z"/><path class="rt-fig-2" d="M-13.6 -54 C-19 -47 -20 -38 -16 -31.5 L-10.4 -31.5 C-13 -38 -12 -46 -8.6 -51.5 Z"/><path class="rt-fig-2" d="M13.6 -54 C19 -47 20 -38 16 -31.5 L10.4 -31.5 C13 -38 12 -46 8.6 -51.5 Z"/><path class="rt-hand" d="M-9 -31.5 C-9 -35 -4 -36.5 0 -36.5 C4 -36.5 9 -35 9 -31.5 Z"/><circle class="rt-fig-2" cx="0" cy="-70.5" r="9.8"/><path class="rt-fig-2" d="M-9.9 -72.5 C-9.3 -79.5 -5 -82.8 0 -82.8 C5 -82.8 9.3 -79.5 9.9 -72.5 C7.2 -77.6 4.1 -79.2 0 -79.2 C-4.1 -79.2 -7.2 -77.6 -9.9 -72.5 Z"/><circle class="rt-fig-2" cx="8.9" cy="-77.4" r="4.8"/><path class="rt-sash" d="M-7 -56 L6.5 -34"/><path class="rt-malai" d="M-8.8 -60.5 C-9.2 -52.5 -4.7 -49 0 -49 C4.7 -49 9.2 -52.5 8.8 -60.5"/><circle class="rt-bud" cx="-6.6" cy="-52.0" r="2"/><circle class="rt-bud" cx="-3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="0.0" cy="-49.4" r="2"/><circle class="rt-bud" cx="3.3" cy="-50.0" r="2"/><circle class="rt-bud" cx="6.6" cy="-52.0" r="2"/><ellipse class="rt-mongkol" cx="0" cy="-80.8" rx="10.9" ry="3.4"/></g>
+            <path class="rt-cord" d="M-22.1 -80.8 C-12 -73.5 12 -73.5 22.1 -80.8"/>
+          </g>
+    </svg>
+  </div>
+</div>
+</body></html>

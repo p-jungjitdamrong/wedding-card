@@ -99,11 +99,19 @@ git push -u origin main
 > เวลาอัปเดตข้อความ: แก้ `content.js` → commit → push แล้วเว็บอัปเดตเอง
 > ถ้าเห็นเป็นของเก่าให้เพิ่มเลข version ท้าย `content.js?v=1` ใน index.html เป็น `?v=2`
 
-**ก่อนแชร์ทาง LINE** ควรเพิ่มรูป preview ใน `<head>` ของ index.html:
+### รูป preview ตอนแชร์ (og:image)
 
-```html
-<meta property="og:image" content="https://<user>.github.io/<repo>/assets/img/preview.jpg" />
+รูปอยู่ที่ `assets/img/og.jpg` (1200×630) สร้างจากหน้า `og.html` ในโปรเจกต์
+ถ้าแก้ชื่อ/วันที่แล้วอยากอัปเดตรูป ให้แก้ `og.html` แล้วสั่ง:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars --force-device-scale-factor=2 --window-size=1200,630 --virtual-time-budget=8000 --screenshot=/tmp/og-raw.png "http://localhost:4321/og.html"
 ```
+
+แล้วย่อเป็น JPG: `sips -Z 1200 --setProperty format jpeg --setProperty formatOptions 84 /tmp/og-raw.png --out assets/img/og.jpg`
+
+> **สำคัญ:** แท็ก `og:` ต้องเป็นค่าคงที่ใน `index.html` เท่านั้น — ตัวดึงข้อมูลของ LINE/Facebook
+> ไม่รัน JavaScript จึงอ่านค่าจาก content.js ไม่ได้ ถ้าเปลี่ยนชื่อหรือวันที่ ต้องแก้ทั้งสองที่
 
 ---
 
