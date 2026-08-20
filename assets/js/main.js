@@ -426,7 +426,63 @@
   var musicBtn   = $('#musicToggle');
   var audioArmed = false;
   var fadeTimer  = null;
+  var stopTimer  = null;
   var musicVol   = (W.music && typeof W.music.volume === 'number') ? W.music.volume : 0.35;
+
+  var FADE_MS    = 700;
+  var FADE_STEPS = 14;
+
+  /* iOS refuses programmatic writes to HTMLMediaElement.volume — it always
+     reads back as 1. Routing the element through a Web Audio gain node is the
+     only way to control loudness there, so prefer it and keep the plain
+     element volume as the fallback. */
+  var audioCtx = null;
+  var gainNode = null;
+
+  function buildAudioGraph() {
+    if (gainNode) return;
+    var Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return;
+    try {
+      audioCtx = new Ctx();
+      var src = audioCtx.createMediaElementSource(bgm);
+      gainNode = audioCtx.createGain();
+      gainNode.gain.value = 0;
+      src.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+    } catch (e) {
+      audioCtx = null;
+      gainNode = null;   // fall back to bgm.volume
+    }
+  }
+
+  function currentVolume() {
+    return gainNode ? gainNode.gain.value : bgm.volume;
+  }
+
+  function setVolume(v) {
+    v = Math.min(1, Math.max(0, v));
+    if (gainNode) gainNode.gain.value = v;
+    else bgm.volume = v;
+  }
+
+  /* Runs a fixed number of steps rather than waiting for the volume to reach
+     the target — on a platform that ignores volume writes, waiting never ends
+     and the track would keep playing after the guest pressed stop. */
+  function fadeTo(target, done) {
+    window.clearInterval(fadeTimer);
+    var from = currentVolume();
+    var i = 0;
+    fadeTimer = window.setInterval(function () {
+      i += 1;
+      setVolume(from + (target - from) * (i / FADE_STEPS));
+      if (i >= FADE_STEPS) {
+        window.clearInterval(fadeTimer);
+        setVolume(target);
+        if (done) done();
+      }
+    }, FADE_MS / FADE_STEPS);
+  }
 
   musicBtn.setAttribute('aria-label', W.music.label);
   $('#bgmSource').src = W.music.src;
@@ -442,22 +498,11 @@
   bgm.preload = 'metadata';
   try { bgm.load(); } catch (e) { /* no source */ }
 
-  function fadeTo(target, done) {
-    window.clearInterval(fadeTimer);
-    fadeTimer = window.setInterval(function () {
-      var diff = target - bgm.volume;
-      if (Math.abs(diff) < 0.04) {
-        bgm.volume = target;
-        window.clearInterval(fadeTimer);
-        if (done) done();
-        return;
-      }
-      bgm.volume = Math.min(1, Math.max(0, bgm.volume + (diff > 0 ? 0.04 : -0.04)));
-    }, 60);
-  }
-
   function startMusic() {
-    bgm.volume = 0;
+    window.clearTimeout(stopTimer);
+    buildAudioGraph();
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    setVolume(0);
     var p = bgm.play();
     if (p && p.catch) {
       p.then(function () {
@@ -470,8 +515,18 @@
   }
 
   function stopMusic() {
-    fadeTo(0, function () { bgm.pause(); });
     musicBtn.setAttribute('aria-pressed', 'false');
+    fadeTo(0, function () { bgm.pause(); });
+
+    /* The fade runs on repeated ticks, and a browser throttles timers hard
+       once the tab is in the background. Pin the actual stop to a single
+       timer so pressing stop always silences the track on schedule. */
+    window.clearTimeout(stopTimer);
+    stopTimer = window.setTimeout(function () {
+      window.clearInterval(fadeTimer);
+      setVolume(0);
+      bgm.pause();
+    }, FADE_MS + 80);
   }
 
   musicBtn.addEventListener('click', function () {
