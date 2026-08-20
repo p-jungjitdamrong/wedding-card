@@ -40,7 +40,7 @@
   };
 </script>
 
-<link rel="stylesheet" href="assets/css/style.css?v=3" />
+<link rel="stylesheet" href="assets/css/style.css?v=5" />
 </head>
 
 <body class="is-locked">
@@ -108,6 +108,7 @@
         <span class="door-panel door-panel--base"></span>
         <span class="door-sheen" aria-hidden="true"></span>
         <span class="door-knob"></span>
+        <span class="door-shade" aria-hidden="true"></span>
       </div>
     </div>
 
@@ -117,6 +118,7 @@
         <span class="door-panel door-panel--base"></span>
         <span class="door-sheen" aria-hidden="true"></span>
         <span class="door-knob"></span>
+        <span class="door-shade" aria-hidden="true"></span>
       </div>
     </div>
 
@@ -220,6 +222,8 @@
           <!-- arch outline -->
           <path class="arch-line" d="M28 452 L28 216 C28 158 74 146 90 102 C99 76 110 54 124 54 L216 54 C230 54 241 76 250 102 C266 146 312 158 312 216 L312 452"/>
           <path class="arch-line hair" d="M39 452 L39 218 C39 166 82 154 99 110 C108 84 118 65 129 65 L211 65 C222 65 232 84 241 110 C258 154 301 166 301 218 L301 452"/>
+          <path class="arch-spark" pathLength="1000"
+                d="M28 452 L28 216 C28 158 74 146 90 102 C99 76 110 54 124 54 L216 54 C230 54 241 76 250 102 C266 146 312 158 312 216 L312 452"/>
 
           <!-- crown ornament -->
           <g class="arch-orn">
@@ -230,6 +234,9 @@
             <use href="#kanok" transform="translate(294,206) scale(.7)"/>
           </g>
         </svg>
+
+        <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+        <span class="card-sheen" aria-hidden="true"></span>
 
         <div class="arch-text">
           <p class="eyebrow" data-hero="1" data-t="hero.eyebrow">The Wedding Ceremony of</p>
@@ -519,6 +526,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="assets/js/content.js?v=1" defer></script>
-<script src="assets/js/main.js?v=4" defer></script>
+<script src="assets/js/main.js?v=6" defer></script>
 </body>
 </html>

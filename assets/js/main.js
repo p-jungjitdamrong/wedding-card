@@ -191,6 +191,25 @@
     host.appendChild(frag);
   })();
 
+  /* twinkling gold sparks scattered over the invitation card */
+  (function makeSparkles() {
+    if (reduceMotion) return;
+    var host = document.getElementById('sparkles');
+    if (!host) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 14; i++) {
+      var sp = document.createElement('span');
+      sp.className = 'sparkle';
+      sp.style.setProperty('--s', (9 + Math.random() * 13).toFixed(1) + 'px');
+      sp.style.setProperty('--dur', (3.4 + Math.random() * 3.6).toFixed(1) + 's');
+      sp.style.setProperty('--delay', (Math.random() * 7).toFixed(1) + 's');
+      sp.style.left = (6 + Math.random() * 86).toFixed(1) + '%';
+      sp.style.top  = (6 + Math.random() * 86).toFixed(1) + '%';
+      frag.appendChild(sp);
+    }
+    host.appendChild(frag);
+  })();
+
   function showInvite() {
     invite.classList.add('is-visible');
     invite.setAttribute('aria-hidden', 'false');
@@ -250,8 +269,9 @@
       .fromTo(lightbeam,
         { width: 0, opacity: 0 },
         { width: '30vw', opacity: 1, duration: 1.6, ease: 'power2.out' }, 0.3)
-      .to(doorLeft,  { rotateY: -115, duration: 2.2, ease: 'power3.inOut' }, 0.6)
-      .to(doorRight, { rotateY:  115, duration: 2.2, ease: 'power3.inOut' }, 0.6)
+      .to(doorLeft,  { rotateY:  92, duration: 2.3, ease: 'power3.inOut' }, 0.6)
+      .to(doorRight, { rotateY: -92, duration: 2.3, ease: 'power3.inOut' }, 0.6)
+      .to($$('.door-shade'), { opacity: 0.72, duration: 1.9, ease: 'power2.in' }, 0.7)
       .to(scene,     { scale: 1.28,   duration: 2.6, ease: 'power2.inOut' }, 0.6)
       .to(godrays,   { opacity: 1,    duration: 1.1, ease: 'power1.out' }, 0.9)
       .to(bloom,     { opacity: 1,    duration: 1.0, ease: 'power2.out' }, 1.35)

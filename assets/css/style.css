@@ -134,6 +134,15 @@ button{ font:inherit; color:inherit; }
   100%  { transform:translateX(320%) skewX(-12deg); opacity:0 }
 }
 
+/* light falls off the leaf as it swings away from the viewer */
+.door-shade{
+  position:absolute; inset:0; z-index:5; opacity:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(6,12,16,.15), rgba(6,12,16,.75));
+}
+.door--right .door-shade{
+  background:linear-gradient(270deg, rgba(6,12,16,.15), rgba(6,12,16,.75));
+}
+
 .door-knob{
   position:absolute; top:71%; width:13px; height:48px; border-radius:8px; z-index:4;
   background:linear-gradient(180deg,#F3E3AE,#B8912A 55%,#8E6E16);
@@ -261,8 +270,9 @@ button{ font:inherit; color:inherit; }
 
 /* CSS-only fallback when GSAP is unavailable */
 .door-stage.is-opening .door{ transition:transform 2s var(--ease-door); }
-.door-stage.is-opening .door--left { transform:rotateY(-112deg); }
-.door-stage.is-opening .door--right{ transform:rotateY(112deg);  }
+.door-stage.is-opening .door--left { transform:rotateY(92deg);  }
+.door-stage.is-opening .door--right{ transform:rotateY(-92deg); }
+.door-stage.is-opening .door-shade{ opacity:.7; transition:opacity 1.8s ease; }
 .door-stage.is-opening .seal{ opacity:0; animation:none; transform:scale(1.4); transition:opacity .6s ease, transform .9s ease; }
 .door-stage.is-opening .door-lightbeam{ width:34vw; opacity:1; transition:width 1.6s ease-out, opacity 1s ease; }
 .door-stage.is-gone{ opacity:0; visibility:hidden; transition:opacity .9s ease .6s, visibility 0s linear 1.5s; }
@@ -388,6 +398,54 @@ button{ font:inherit; color:inherit; }
 .arch-line.hair{ stroke:rgba(212,175,55,.5); stroke-width:1; }
 .arch-orn{
   fill:rgba(212,175,55,.82); stroke:rgba(169,138,32,.6); stroke-width:.7;
+}
+
+/* a highlight that runs around the gold trim */
+.arch-spark{
+  fill:none; stroke:#FFD75E; stroke-width:3.2; stroke-linecap:round;
+  stroke-dasharray:64 936;
+  filter:drop-shadow(0 0 4px rgba(255,198,64,.95)) drop-shadow(0 0 10px rgba(255,214,110,.8));
+  animation:archRun 7s linear infinite;
+}
+@keyframes archRun{
+  0%  { stroke-dashoffset:0;     opacity:0 }
+  6%  { opacity:1 }
+  88% { opacity:1 }
+  100%{ stroke-dashoffset:-1000; opacity:0 }
+}
+
+/* twinkling gold dust over the card */
+.sparkles{ position:absolute; inset:0; pointer-events:none; z-index:2; overflow:hidden; }
+.sparkle{
+  position:absolute; width:var(--s,12px); height:var(--s,12px);
+  background:linear-gradient(140deg,#FFF3C0 0%,#F0C44A 55%,#C9A227 100%);
+  clip-path:polygon(50% 0%,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0% 50%,42% 42%);
+  filter:drop-shadow(0 0 5px rgba(226,178,52,.95)) drop-shadow(0 0 11px rgba(255,214,110,.6));
+  opacity:0; transform:scale(.3);
+  animation:twinkle var(--dur,4s) ease-in-out var(--delay,0s) infinite;
+}
+@keyframes twinkle{
+  0%,100%{ opacity:0; transform:scale(.3) rotate(0deg) }
+  8%     { opacity:1; transform:scale(1)  rotate(35deg) }
+  18%    { opacity:.25; transform:scale(.72) rotate(60deg) }
+  28%    { opacity:.9; transform:scale(.95) rotate(85deg) }
+  46%    { opacity:0; transform:scale(.3) rotate(120deg) }
+}
+
+/* slow light sweep across the whole card */
+.card-sheen{
+  position:absolute; inset:0; z-index:3; pointer-events:none; overflow:hidden; border-radius:3px;
+}
+.card-sheen::after{
+  content:""; position:absolute; top:-40%; left:-45%; width:34%; height:180%;
+  background:linear-gradient(100deg, transparent, rgba(255,250,232,.55), transparent);
+  transform:skewX(-16deg); filter:blur(6px);
+  animation:cardSheen 9s ease-in-out infinite;
+}
+@keyframes cardSheen{
+  0%,72%{ left:-45%; opacity:0 }
+  76%   { opacity:1 }
+  100%  { left:125%; opacity:0 }
 }
 
 .arch-scene .sil{
@@ -764,6 +822,7 @@ input[aria-invalid="true"]{ border-color:#B5695E; }
     transition-duration:.001ms !important;
   }
   .reveal,[data-hero]{ opacity:1 !important; transform:none !important; }
+  .sparkle,.arch-spark,.card-sheen::after,.door-sheen{ display:none !important; }
 }
 
 @media print{
